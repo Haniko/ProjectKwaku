@@ -48,7 +48,13 @@ namespace WebUI
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-            app.UseMvc();
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Values}/{action=Get}/{id?}");
+            });
         }
     }
 }
