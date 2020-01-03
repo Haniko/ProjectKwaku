@@ -8,3 +8,8 @@
 /ProjectKwaku/WebUI/obj
 *.user
 /ProjectKwaku/Services/obj
+/ProjectKwaku/Services/bin/Debug/netcoreapp3.1
+/ProjectKwaku/Models/bin/Debug/netcoreapp3.1
+/ProjectKwaku/Models/obj
+/ProjectKwaku/Repositories/bin/Debug/netcoreapp3.1
+/ProjectKwaku/Repositories/obj
