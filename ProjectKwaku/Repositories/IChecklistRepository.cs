@@ -1,9 +1,9 @@
 ﻿using Models.Entities;
 using System.Collections.Generic;
 
-namespace Services
+namespace Repositories
 {
-    public interface IChecklistService
+    public interface IChecklistRepository
     {
         IList<Checklist> GetAll(int checklistTypeId);
     }

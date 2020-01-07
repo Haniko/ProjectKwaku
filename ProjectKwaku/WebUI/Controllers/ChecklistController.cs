@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Models.Entities;
 using Services;
+using System.Collections.Generic;
 
 namespace WebUI.Controllers
 {
@@ -15,18 +16,11 @@ namespace WebUI.Controllers
             this.checklistService = checklistService;
         }
 
-        // GET: api/Checklist
-        [HttpGet]
-        public IEnumerable<string> Get()
+        // GET: api/checklist/{checklistTypeId}
+        [HttpGet("{checklistTypeId}")]
+        public IList<Checklist> GetAll(int checklistTypeId)
         {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET: api/Checklist/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
+            return checklistService.GetAll(checklistTypeId);
         }
 
         // POST: api/Checklist
