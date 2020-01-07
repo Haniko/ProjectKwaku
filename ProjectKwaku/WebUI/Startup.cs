@@ -2,11 +2,11 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Repositories;
+using Services;
 
 namespace WebUI
 {
@@ -30,9 +30,14 @@ namespace WebUI
             });
 
             services
-                .AddDbContext<ChecklistContext>(options => options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking).UseSqlServer(Configuration.GetConnectionString("OpsChecklistDatabase")))
+                .AddDbContext<ChecklistContext>()
                 .AddMvc(option => option.EnableEndpointRouting = false)
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+
+            services
+                .AddTransient<IChecklistRepository, ChecklistRepository>()
+                .AddTransient<IChecklistService, ChecklistService>()
+                .AddScoped<IDbContext, ChecklistContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,13 +62,7 @@ namespace WebUI
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Values}/{action=Get}/{id?}");
-            });
+            app.UseMvc();
         }
     }
 }
