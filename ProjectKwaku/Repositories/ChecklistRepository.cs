@@ -20,6 +20,9 @@ namespace Repositories
                 .AsNoTracking()
                 .Include(x => x.ChecklistType)
                 .Include(x => x.SignOffUser)
+                .Include(x => x.TaskStatuses)
+                .Include(x => x.TaskStatuses)
+                    .ThenInclude(y => y.Task)
                 .Where(x => x.ChecklistTypeId == checklistTypeId)
                 .ToList();
         }

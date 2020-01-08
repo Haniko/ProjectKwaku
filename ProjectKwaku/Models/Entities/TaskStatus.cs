@@ -13,18 +13,20 @@ namespace Models.Entities
     {
         public int TaskStatusId { get; set; }
 
+        public int ChecklistId { get; set; }
+
         [ForeignKey("Task")]
         public int TaskId { get; set; }
-
-        public virtual Task Task { get; set; }
-
-        public string Comment { get; set; }
 
         [ForeignKey("User")]
         public int? AssignedUserId { get; set; }
 
-        public virtual User AssignedUser { get; set; }
+        public string Comment { get; set; }
 
         public State State { get; set; }
+
+        public virtual Task Task { get; set; }
+
+        public virtual User AssignedUser { get; set; }
     }
 }

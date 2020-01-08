@@ -8,9 +8,7 @@ namespace Models.Entities
         public int TaskId { get; set; }
 
         [ForeignKey("ChecklistType")]
-        public int? ChecklistTypeId { get; set; }
-
-        public virtual ChecklistType ChecklistType { get; set; }
+        public int ChecklistTypeId { get; set; }
 
         public string Name { get; set; }
 
@@ -25,5 +23,7 @@ namespace Models.Entities
         public DateTime StartDate { get; set; }
 
         public DateTime? EndDate { get; set; }
+
+        public virtual ChecklistType ChecklistType { get; set; }
     }
 }
