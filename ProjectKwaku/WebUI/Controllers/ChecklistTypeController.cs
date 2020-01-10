@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Models.Entities;
 using Services;
+using System.Collections.Generic;
 
 namespace WebUI.Controllers
 {

@@ -22,23 +22,5 @@ namespace WebUI.Controllers
         {
             return checklistService.GetAll(checklistTypeId);
         }
-
-        // POST: api/Checklist
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT: api/Checklist/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }
