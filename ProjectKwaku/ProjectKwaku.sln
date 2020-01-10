@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Servic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "Repositories\Repositories.csproj", "{C538A4D7-AC2C-48C2-89FB-7EE76C84909E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{500EC7C1-329E-4591-9CA4-C2A6DD1B6904}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{500EC7C1-329E-4591-9CA4-C2A6DD1B6904}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

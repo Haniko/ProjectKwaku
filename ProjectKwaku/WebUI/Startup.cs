@@ -36,7 +36,9 @@ namespace WebUI
 
             services
                 .AddTransient<IChecklistRepository, ChecklistRepository>()
+                .AddTransient<IChecklistTypeRepository, ChecklistTypeRepository>()
                 .AddTransient<IChecklistService, ChecklistService>()
+                .AddTransient<IChecklistTypeService, ChecklistTypeService>()
                 .AddScoped<IDbContext, ChecklistContext>();
         }
 
