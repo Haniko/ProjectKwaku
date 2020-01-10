@@ -9,7 +9,7 @@ namespace Models.Entities
         public int ChecklistId { get; set; }
 
         [ForeignKey("ChecklistType")]
-        public int? ChecklistTypeId { get; set; }
+        public int ChecklistTypeId { get; set; }
 
         [ForeignKey("SignOffUser")]
         public int? SignOffUserId { get; set; }
