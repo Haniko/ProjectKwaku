@@ -16,8 +16,7 @@ namespace WebUI.Controllers
             this.checklistTypeService = checklistTypeService;
         }
 
-        // GET: api/checklisttypes
-        [HttpGet]
+        [HttpGet("all")]
         public IList<ChecklistType> GetAll()
         {
             return checklistTypeService.GetAll();
