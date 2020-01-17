@@ -1,9 +1,11 @@
 ﻿body {
-    background: #599fd9;
-    background: -webkit-linear-gradient(to right, #599fd9, #c2e59c);
-    background: linear-gradient(to right, #599fd9, #c2e59c);
     min-height: 100vh;
     overflow-x: hidden;
+    background-color: #f2f3f8;
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    font-family: 'Poppins', 'Helvetica', sans-serif;
 }
 
 .page-content {
@@ -12,27 +14,17 @@
     transition: all 0.4s;
 }
 
-#content.active {
-    width: 100%;
-    margin: 0;
+img {
+    vertical-align: middle;
+    border-style: none;
 }
 
-@media (max-width: 768px) {
-    #sidebar {
-        margin-left: -17rem;
-    }
-
-        #sidebar.active {
-            margin-left: 0;
-        }
-
-    #content {
-        width: 100%;
-        margin: 0;
-    }
-
-        #content.active {
-            margin-left: 17rem;
-            width: calc(100% - 17rem);
-        }
+button {
+    display: inline-block;
+    padding: 0;
+    border: 0;
+    background: 0 0;
+    outline: 0 !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
