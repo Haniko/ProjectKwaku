@@ -1,4 +1,19 @@
-﻿body {
+﻿/* Colours */
+
+.white {
+    color: #ffffff;
+}
+
+.brand-purple-fg {
+    color: #752864;
+}
+
+.brand-purple-bg {
+    background-color: #752864;
+}
+
+
+body {
     min-height: 100vh;
     overflow-x: hidden;
     background-color: #f2f3f8;
