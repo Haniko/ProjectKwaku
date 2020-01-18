@@ -14,3 +14,6 @@
 /ProjectKwaku/Repositories/bin/Debug/netcoreapp3.1
 /ProjectKwaku/Repositories/obj
 /ProjectKwaku/.vs/config
+/ProjectKwaku/Models/bin/Release/netcoreapp3.1
+/ProjectKwaku/Repositories/bin/Release/netcoreapp3.1
+/ProjectKwaku/Services/bin/Release/netcoreapp3.1

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import './navmenu.css';
 
 export class NavMenu extends Component {
@@ -27,9 +28,9 @@ export class NavMenu extends Component {
         return (
             checklistTypes.map(checklistType =>
                 <li className="sidebar-menu-item checklist-item" key={checklistType.checklistTypeId}>
-                    <a className="sidebar-menu-link" href={this.getUrl(checklistType.checklistTypeId)}>
+                    <Link className="sidebar-menu-link" to={this.getUrl(checklistType.checklistTypeId)}>
                         <span className="sidebar-menu-text">{checklistType.name}</span>
-                    </a>
+                    </Link>
                 </li>
             )
         );
@@ -44,9 +45,9 @@ export class NavMenu extends Component {
             <div id="sidebar" className="brand-purple-bg">
                 <div id="sidebar-brand">
                     <div id="sidebar-brand-logo">
-                        <a href="/">
+                        <Link to="/">
                             <img src="images/cpu-logo-white.png" alt="Computershare" />
-                        </a>
+                        </Link>
                     </div>
 
                     <div id="sidebar-tools">
@@ -61,17 +62,17 @@ export class NavMenu extends Component {
                 <div id="menu-wrapper">
                     <div id="sidebar-menu">
                         <ul id="sidebar-menu-nav">
-                            <li className="sidebar-menu-item active">
-                                <a className="sidebar-menu-link" href="/">
+                            <li className="sidebar-menu-item">
+                                <NavLink className="sidebar-menu-link" activeClassName="active" to="/">
                                     <span className="sidebar-menu-icon"></span>
                                     <span className="sidebar-menu-text">Dashboard</span>
-                                </a>
+                                </NavLink>
                             </li>
                             <li className="sidebar-menu-item">
-                                <a className="sidebar-menu-link" href="#">
+                                <NavLink className="sidebar-menu-link" activeClassName="active" to="/counter">
                                     <span className="sidebar-menu-icon"></span>
                                     <span className="sidebar-menu-text">Settings</span>
-                                </a>
+                                </NavLink>
                             </li>
                             <li className="sidebar-menu-section checklist-item">
                                 <h4 className="sidebar-menu-section-text">Checklists</h4>
