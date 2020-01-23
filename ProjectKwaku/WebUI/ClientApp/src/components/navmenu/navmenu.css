@@ -118,39 +118,68 @@
         opacity: 1.0;
     }
 
-    #sidebar .sidebar-minimised {
+    #sidebar.sidebar-minimised {
         width: 70px !important;
     }
 
-        #sidebar .sidebar-minimised #sidebar-brand {
+        #sidebar.sidebar-minimised #sidebar-brand {
             justify-content: center;
         }
 
-        #sidebar .sidebar-minimised #sidebar-brand-logo {
+        #sidebar.sidebar-minimised #sidebar-brand-logo {
             display: none;
         }
 
-        #sidebar .sidebar-minimised #sidebar-tools {
+        #sidebar.sidebar-minimised #sidebar-tools {
             justify-content: right;
         }
 
-        #sidebar .sidebar-minimised #toggle-icon {
+        #sidebar.sidebar-minimised #toggle-icon {
             transform: rotate(180deg);
         }
 
-        #sidebar .sidebar-minimised .sidebar-menu-text {
+        #sidebar.sidebar-minimised .sidebar-menu-text {
             display: none;
         }
 
-        #sidebar .sidebar-minimised .sidebar-menu-section {
+        #sidebar.sidebar-minimised .sidebar-menu-section {
             display: none;
         }
 
-        #sidebar .sidebar-minimised .sidebar-menu-bullet-dot {
+        #sidebar.sidebar-minimised .sidebar-menu-bullet-dot {
             align-items: center;
             justify-content: center;
         }
 
-        #sidebar .sidebar-minimised .checklist-item {
+        #sidebar.sidebar-minimised .checklist-item {
             display: none;
         }
+
+
+
+#sidebar .active.sidebar-menu-link {
+    background-color: #5e2050;
+}
+
+#sidebar .active .sidebar-menu-text {
+    color: #ffffff;
+    opacity: 1.0;
+}
+
+#sidebar .active .sidebar-menu-icon > svg {
+    fill-opacity: 1.0;
+}
+
+#sidebar-toggle :hover {
+    fill-opacity: 1.0;
+}
+
+.sidebar-menu-item :hover {
+    background-color: #5e2050;
+}
+
+#toggle-icon {
+    height: 26px;
+    width: 26px;
+    fill-opacity: 0.5;
+} 
