@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Container } from 'reactstrap';
-import { NavMenu } from '../navmenu/navmenu';
 import { Header } from '../header/header'
+import { NavMenu } from '../navmenu/navmenu';
 import "./layout.css"
 
 export class Layout extends Component {
@@ -18,11 +17,11 @@ export class Layout extends Component {
     render() {
         return (
             <>
-                <NavMenu onSidebarToggle={this.onSidebarToggle.bind(this)}></NavMenu>
+                <NavMenu onSidebarToggle={this.onSidebarToggle}></NavMenu>
                 <Header></Header>
-                <Container id="main-content">
+                <div id="main-content">
                     {this.props.children}
-                </Container>
+                </div>
             </>
         );
     }
