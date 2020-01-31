@@ -10,17 +10,12 @@ export class NavMenu extends Component {
 
         this.state = {
             checklistTypes: [],
-            loading: true,
-            sidebarCollapsed: false
+            loading: true
         };
     }
 
     componentDidMount() {
         this.getChecklistTypes();
-    }
-
-    onSidebarToggle = () => {
-        this.setState({ sidebarCollapsed: !this.state.sidebarCollapsed });
     }
 
     async getChecklistTypes() {
@@ -37,8 +32,8 @@ export class NavMenu extends Component {
         return (
             checklistTypes.map(checklistType =>
                 <li className="sidebar-menu-item checklist-item" key={checklistType.checklistTypeId}>
-                    <NavLink className="sidebar-menu-link" activeClassName="active" exact to={this.getUrl(checklistType.checklistTypeId)}>
-                        <span className="sidebar-menu-text">{checklistType.name}</span>
+                    <NavLink className="sidebar-menu-link d-flex px-4" activeClassName="active" exact to={this.getUrl(checklistType.checklistTypeId)}>
+                        <span className="sidebar-menu-text d-flex align-items-center text-white">{checklistType.name}</span>
                     </NavLink>
                 </li>
             )
@@ -50,19 +45,17 @@ export class NavMenu extends Component {
             ? <p><em>Loading...</em></p>
             : this.getMenuOptions(this.state.checklistTypes);
 
-        const sidebarCSS = this.state.sidebarCollapsed ? "sidebar-minimised" : "";
-
         return (
-            <div id="sidebar" className={"brand-purple-bg " + sidebarCSS}>
-                <div id="sidebar-brand">
+            <div id="sidebar" className="position-fixed h-100 brand-purple-bg">
+                <div id="sidebar-brand" className="d-flex flex-row align-items-center justify-content-between py-0 px-4">
                     <div id="sidebar-brand-logo">
                         <Link to="/">
                             <img src="images/cpu-logo-white.png" alt="Computershare" />
                         </Link>
                     </div>
 
-                    <div id="sidebar-tools">
-                        <button id="sidebar-toggle" onClick={this.onSidebarToggle}>
+                    <div>
+                        <button id="sidebar-toggle" onClick={this.props.onSidebarToggle}>
                             <span>
                                 <svg id="toggle-icon" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -77,11 +70,11 @@ export class NavMenu extends Component {
                 </div>
 
                 <div id="menu-wrapper">
-                    <div id="sidebar-menu">
-                        <ul id="sidebar-menu-nav">
+                    <div id="sidebar-menu" className="my-3 mx-0">
+                        <ul className="py-3 px-0">
                             <li className="sidebar-menu-item">
-                                <NavLink className="sidebar-menu-link" activeClassName="active" exact to="/">
-                                    <span className="sidebar-menu-icon">
+                                <NavLink className="sidebar-menu-link d-flex px-4" activeClassName="active" exact to="/">
+                                    <span className="sidebar-menu-icon d-flex align-items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1">
                                             <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                                                 <polygon points="0 0 24 0 24 24 0 24"></polygon>
@@ -91,13 +84,13 @@ export class NavMenu extends Component {
                                         </svg>
                                     </span>
 
-                                    <span className="sidebar-menu-text">Dashboard</span>
+                                    <span className="sidebar-menu-text d-flex align-items-center text-white">Dashboard</span>
                                 </NavLink>
                             </li>
 
                             <li className="sidebar-menu-item">
-                                <NavLink className="sidebar-menu-link" activeClassName="active" exact to="/counter">
-                                    <span className="sidebar-menu-icon">
+                                <NavLink className="sidebar-menu-link d-flex px-4" activeClassName="active" exact to="/counter">
+                                    <span className="sidebar-menu-icon d-flex align-items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1">
                                             <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                                                 <rect x="0" y="0" width="24" height="24" />
@@ -106,12 +99,12 @@ export class NavMenu extends Component {
                                         </svg>
                                     </span>
 
-                                    <span className="sidebar-menu-text">Settings</span>
+                                    <span className="sidebar-menu-text d-flex align-items-center text-white">Settings</span>
                                 </NavLink>
                             </li>
 
-                            <li className="sidebar-menu-section checklist-item">
-                                <h4 className="sidebar-menu-section-text">Checklists</h4>
+                            <li className="sidebar-menu-section checklist-item d-flex px-4 mt-4">
+                                <h4 className="sidebar-menu-section-text d-flex align-items-center m-0 text-white">Checklists</h4>
                             </li>
 
                             {menuOptions}

@@ -1,180 +1,11 @@
 ﻿#sidebar {
-    position: fixed;
     top: 0;
-    bottom: 0;
-    left: 0;
     width: 265px;
-    z-index: 98;
     transition: 0.3s;
 }
 
-    #sidebar #sidebar-brand {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 23px;
-        height: 65px;
-        background-color: #5e2050;
-    }
-
-    #sidebar .toggle-icon {
-        height: 26px;
-        width: 26px;
-        fill-opacity: 0.5;
-    }
-
-    #sidebar #sidebar-menu {
-        margin: 15px 0;
-        height: 569px;
-        overflow: hidden;
-    }
-
-    #sidebar #sidebar-menu-nav {
-        margin: 0;
-        list-style: none;
-        padding: 15px 0;
-    }
-
-    #sidebar .sidebar-menu-item {
-        display: flex;
-        flex-direction: column;
-        float: none;
-        padding: 0;
-        position: relative;
-        margin: 0;
-    }
-
-    #sidebar .sidebar-menu-link {
-        display: flex;
-        align-items: stretch;
-        margin: 0;
-        text-decoration: none !important;
-        position: relative;
-        cursor: pointer;
-        min-height: 44px;
-        padding: 9px 25px;
-    }
-
-    #sidebar .sidebar-menu-icon {
-        display: flex;
-        align-items: center;
-        line-height: 0;
-        flex: 0 0 35px;
-    }
-
-        #sidebar .sidebar-menu-icon > svg {
-            height: 23px;
-            width: 23px;
-            margin-left: -2px;
-            fill-opacity: 0.5;
-        }
-
-    #sidebar .sidebar-menu-text {
-        display: flex;
-        align-items: center;
-        flex-grow: 1;
-        padding: 0;
-        color: #ffffff;
-        opacity: 0.7;
-        white-space: nowrap;
-    }
-
-    #sidebar .sidebar-menu-section {
-        display: flex;
-        padding: 0 25px;
-        margin: 20px 0 0 0;
-        height: 40px;
-    }
-
-    #sidebar .sidebar-menu-section-text {
-        display: flex;
-        align-items: center;
-        -webkit-box-align: center;
-        margin: 0;
-        padding: 0;
-        font-size: 12px;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.3px;
-        color: #ffffff;
-        opacity: 0.3;
-    }
-
-    #sidebar .active .sidebar-menu-link {
-        background-color: #5e2050;
-    }
-
-    #sidebar .active .sidebar-menu-text {
-        color: #ffffff;
-        opacity: 1.0;
-    }
-
-    #sidebar .active.sidebar-menu-icon > svg {
-        fill-opacity: 1.0;
-    }
-
-    #sidebar .active .sidebar-menu-bullet-dot > span {
-        opacity: 1.0;
-    }
-
-    #sidebar.sidebar-minimised {
-        width: 70px !important;
-    }
-
-        #sidebar.sidebar-minimised #sidebar-brand {
-            justify-content: center;
-        }
-
-        #sidebar.sidebar-minimised #sidebar-brand-logo {
-            display: none;
-        }
-
-        #sidebar.sidebar-minimised #sidebar-tools {
-            justify-content: right;
-        }
-
-        #sidebar.sidebar-minimised #toggle-icon {
-            transform: rotate(180deg);
-        }
-
-        #sidebar.sidebar-minimised .sidebar-menu-text {
-            display: none;
-        }
-
-        #sidebar.sidebar-minimised .sidebar-menu-section {
-            display: none;
-        }
-
-        #sidebar.sidebar-minimised .sidebar-menu-bullet-dot {
-            align-items: center;
-            justify-content: center;
-        }
-
-        #sidebar.sidebar-minimised .checklist-item {
-            display: none;
-        }
-
-
-
-#sidebar .active.sidebar-menu-link {
-    background-color: #5e2050;
-}
-
-#sidebar .active .sidebar-menu-text {
-    color: #ffffff;
-    opacity: 1.0;
-}
-
-#sidebar .active .sidebar-menu-icon > svg {
-    fill-opacity: 1.0;
-}
-
-#sidebar-toggle :hover {
-    fill-opacity: 1.0;
-}
-
-.sidebar-menu-item :hover {
+#sidebar-brand {
+    height: 65px;
     background-color: #5e2050;
 }
 
@@ -182,4 +13,94 @@
     height: 26px;
     width: 26px;
     fill-opacity: 0.5;
-} 
+}
+
+.sidebar-menu-link {
+    min-height: 44px;
+}
+
+.sidebar-menu-icon {
+    flex: 0 0 35px;
+}
+
+    .sidebar-menu-icon > svg {
+        height: 23px;
+        width: 23px;
+        margin-left: -2px;
+        fill-opacity: 0.5;
+    }
+
+.sidebar-menu-text {
+    opacity: 0.7;
+    white-space: nowrap;
+}
+
+.sidebar-menu-section {
+    height: 40px;
+}
+
+.sidebar-menu-section-text {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    opacity: 0.3;
+}
+
+/* Sidebar Minimised */
+
+.sidebar-minimised {
+    width: 70px !important;
+}
+
+    .sidebar-minimised #sidebar-brand {
+        justify-content: center;
+    }
+
+    .sidebar-minimised #sidebar-brand-logo {
+        display: none;
+    }
+
+    .sidebar-minimised #toggle-icon {
+        transform: rotate(180deg);
+    }
+
+    .sidebar-minimised .sidebar-menu-text {
+        visibility: hidden;
+    }
+
+    .sidebar-minimised .sidebar-menu-section {
+        visibility: hidden;
+    }
+
+    .sidebar-minimised .sidebar-menu-bullet-dot {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sidebar-minimised .checklist-item {
+        visibility: hidden;
+    }
+
+.active .sidebar-menu-link {
+    background-color: #5e2050;
+}
+
+.active .sidebar-menu-text {
+    color: #ffffff;
+    opacity: 1.0;
+}
+
+/* Active */
+
+.active .sidebar-menu-icon > svg {
+    fill-opacity: 1.0;
+}
+
+/* Hover */
+#sidebar-toggle :hover {
+    fill-opacity: 1.0;
+}
+
+.sidebar-menu-item:hover {
+    background-color: #5e2050;
+}

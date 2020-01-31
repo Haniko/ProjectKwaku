@@ -1,4 +1,16 @@
-﻿/* Colours */
+﻿#main-content {
+    margin-top: 119px;
+    margin-left: 265px;
+    height: auto;
+    transition: 0.3s;
+}
+
+.main-content-minimised {
+    margin-left: 70px !important;
+}
+
+
+/* Colours */
 
 .white {
     color: #ffffff;
@@ -12,21 +24,14 @@
     background-color: #752864;
 }
 
-
 body {
-    min-height: 100vh;
-    overflow-x: hidden;
     background-color: #f2f3f8;
+    color: #434349;
+    height: 100%;
     margin: 0;
     padding: 0;
     font-size: 13px;
-    font-family: 'Poppins', 'Helvetica', sans-serif;
-}
-
-.page-content {
-    width: calc(100% - 17rem);
-    margin-left: 17rem;
-    transition: all 0.4s;
+    font-family: 'Poppins', Helvetica, sans-serif;
 }
 
 img {
