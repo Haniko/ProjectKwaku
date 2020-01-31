@@ -34,6 +34,11 @@ namespace Repositories
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<TaskStatus>()
+                .HasOne(x => x.Task)
+                .WithMany()
+                .OnDelete(DeleteBehavior.Restrict);
+
             builder.Entity<ChecklistType>().HasData(
                 new ChecklistType { ChecklistTypeId = 1, Name = "EMEA" },
                 new ChecklistType { ChecklistTypeId = 2, Name = "Oceania" }
