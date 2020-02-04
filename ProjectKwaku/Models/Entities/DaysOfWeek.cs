@@ -12,6 +12,7 @@ namespace Models.Entities
         Thursday = 8,
         Friday = 16,
         Saturday = 32,
-        Sunday = 64
+        Sunday = 64,
+        Everyday = 128
     }
 }
