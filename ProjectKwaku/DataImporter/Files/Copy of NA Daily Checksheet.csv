@@ -1,0 +1,201 @@
+Time,Mon,Tue,Wed,Thu,Fri,Sat,Sun,Title,Brief Description,Documentation full Link,Notes,Comments
+"  08:00 GMT
+03:00 EST",a,a,a,a,a,a,a,Production Canada (CSCPRC) Backups Start,"CSCPRC backups will kick off. Emails will be received to monitor backups but ensure that you are logged into CSCPRC and keeping an eye on OPCOMS and job failures. 
+See Documentation",https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsys_kb_id%3D770e458edbe4bb80d3a5d602ca961974%26sysparm_rank%3D1%26sysparm_tsqueryId%3D9f34fa9cdb5a734040b62c23ca961923,,
+"  08:00 GMT
+03:00 EST",a,a,a,a,a,a,a,Receive SSL IPI and SSL,Ops will receive the IPI and SSL Processes email,https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsys_kb_id%3Dc7cb914edb28bb80d3a5d602ca96196d%26sysparm_rank%3D1%26sysparm_tsqueryId%3D8ba436dcdb5a734040b62c23ca961995,,
+"  08:30 GMT
+03:30 EST",,a,a,a,a,a,,Confirm All URRs Are Complete,At this stage there should be no URRs running. You can confirm this using the command in the comments,,,"JD J:RS_UR
+
+As jobs do no retain on completion in NA, if the output is blank then they are all complete"
+"  08:45 GMT
+03:45 EST",,a,a,a,a,a,,Release Potential Incomplete URR Job If All URRs Are done,"If all URRs are complete, you can release the POTENTIAL_INCOMPLETE_URRS Job on the HOUSEKEEPING queue. If there are any outstanding URRs the job must be held before it's due to release at 04:30 EST",,,
+09:00 - 10:00 GMT 04:00 - 05:00 EST,,a,a,a,a,a,,Check POTENTIAL_INCOMPLETE_URR's report that will arrive as an email into the NA Inbox ,"The email will detail any outstanding URR's that need investigation. If there are any coming back on the report, then the SUBMIT_JOBS_AFTER_ALL_URRS will not be triggered. Follow the linked documentation to resolve.",https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsys_kb_id%3D6c6590b3db553bc41cd6d776489619cb%26sysparm_rank%3D1%26sysparm_tsqueryId%3D59e47210db9a734040b62c23ca9619a2,,
+09:00 GMT 04:00 EST,a,a,a,a,a,a,a,Check for holding jobs,Check for holding jobs on production systems.,,,"JD S:HOLDING 
+
+All jobs on SCRIP$CANCELLED can be ignored
+Any holding jobs should be sent to !NA CT Scrip Support"
+09:00 GMT 04:00 EST,a,a,a,a,a,a,a,Semi-Annual Optimise Jobs Parallel & Serial Check,Check if Semi-Annual Optimise Jobs Parallel & Serial need to be scheduled this week and consider the simulation & heads up email that need to be sent to all parties involved,https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsys_kb_id%3Dca43d62edb293bc81cd6d776489619cb%26sysparm_rank%3D1%26sysparm_tsqueryId%3D7db53a50db9a734040b62c23ca961927,,"Hyperlink only links to Parallel Schedule, also remember to check Serial Schedule."
+09:30 GMT 04:30 EST,a,a,a,a,a,,,Send the Linux UAT/CSATSC aborted URR Report.,,,,Send to Brenda Bicknell and Krishna Kumbhar 
+" 10:00 GMT
+05:00 EST",a,a,a,a,a,a,,Send Escalated Job Report To Scrip Support,See Documentation,\\Brscfp1c\wrkgroup\CS Operations\NA\Templates\GTS Operations - Aborted Job Report.msg,,"!NA CT Scrip Support Canton; #CA CS MON PNI's to Recon; #GL SO NA Operations 
+
+Template attached to documentation tab"
+"  10:00 GMT
+05:00 EST",,,,,,,a,Monitor QUICKP Jobs,"QUICKP jobs begin to run on Production, monitor these to completion and add MSGSETUP's to companies where necessary to get the jobs running.
+See Documentation",https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsys_kb_id%3D797f4622dbe53bc81cd6d7764896196b%26sysparm_rank%3D1%26sysparm_tsqueryId%3D20e63ed0db9a734040b62c23ca9619d0,,
+"  11:00 GMT
+06:00 EST",a,a,a,a,a,a,a,DPA Backup Report,"The report will be sent to #GL SO NA Operations mailbox. An SD ticket will need to be raised, report saved onto the W drive & the SD ticket number saved on the NA shift handover
+See Documentation",https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsys_kb_id%3D17f5d666dba93bc81cd6d7764896194f%26sysparm_rank%3D3%26sysparm_tsqueryId%3D2027f254db9a734040b62c23ca96190b,,
+"  11:30 GMT
+06:30 EST",a,a,a,a,a,a,a,Stop All Defrags,"Stop all currently running defrag processes.
+See Documentation",https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsys_kb_id%3D33495aaedbe93bc81cd6d77648961980%26sysparm_rank%3D3%26sysparm_tsqueryId%3D65573e54db9a734040b62c23ca9619d4,,"Monday-Friday Ops must ensure all defrags are stoped by 07:00 EST time. On a weekend any defrags that are running can be left running, unless it is a DR weekend (calendar link in doc), or there is any special processing happening on a certain disk (such as mega divs/bulk settlements - check handover"
+"  11:45 GMT
+06:45 EST",,,,a,,,,Walmart Payroll Processing,This runs after the URR and is called SPE503_HLDADD_UPDATE_WMT,https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsys_kb_id%3Dd37b610edb68bb80d3a5d602ca961974%26sysparm_rank%3D1%26sysparm_tsqueryId%3D09e7f694db9a734040b62c23ca96194a,,
+"  12:00 GMT
+07:00 EST",a,a,a,a,a,,,Morning Tasks,"Complete the Umenu option for Morning Tasks
+See Documentation",https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsysparm_article%3DKB0010260,,Umenu > Ops > Daily > Morn
+"  14:00 GMT
+09:00 EST",a,a,a,a,a,a,a,Send NA Shift Report ,,,,Send shift report !GL SO NA ALL Shift Reporting 
+"  15:00 GMT
+10:00 EST",a,a,a,a,a,a,a,Backupdisk Cleanup,"Check Backupdisk space on CSAPRC, CSATSC, CSADSC
+See Documentation",https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsysparm_article%3DKB0010215,,
+"  18:00 GMT
+13:00 EST",,,a,,,,,EDC_TST URR,"Include Company EDC_TST to the URR Schedule
+See Documentation",https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsysparm_article%3DKB0010218,,
+"  22:30 GMT
+17:30 EST",a,a,a,a,a,,,Stop Networker Backups,"Stop running Server Backups - Kill All (Excluding any groups that have DO_NOT_KILL in the name).
+See Documentation",https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsys_kb_id%3D17f5d666dba93bc81cd6d7764896194f%26sysparm_rank%3D1%26sysparm_tsqueryId%3D36b93298db9a734040b62c23ca9619be,,Stop all running backups for CARNETWDZ2 and CARNETWDZ3
+"  22:30 GMT
+17:30 EST",a,a,a,a,a,a,a,Create Backup Checksheets,"Create Backup Checksheets for both VMS & Server Networker backups. Templates are found in comments section.
+See Documentation ",W:\CS Operations\NA\Checksheets\Backup Checksheets,,
+"  23:00 GMT
+18:30 EST",a,a,a,a,a,,,Check Handover/Service Point for Fast Terms / AD-HOC Processing,"Before running the batch, check the handover/emails to see if there’s any ad-hoc processing this evening that requires special attention. This could be Fast Terminations, in which these need to run at 18:30 EST promptly, or you may be asked to bring forward an update (which doesn’t require any authorisation if from a product support team if to run after 17:00 EST). Or release a certain job after update. There could be multiple things that can be requested.",,,
+"  23:45 GMT
+18:45 EST",a,a,a,a,a,,,Run SETQUE Command and Change Queue Limits,"Run SETQUE command, confirm all queues are started with STPQ. Start any that arent started. 
+
+Set all queue limits as detailed in document.
+",https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsysparm_article%3DKB0010195,,"Queue Limits should now be:
+Highprior* = 20
+Day* =12
+Par_Exe* =1
+Posturr_Exe* =1"
+"  00:00 GMT
+19:00 EST",,,,,,,a,DSM Reports,"Process the Disk Space Monitor Reports sent to the mailbox.
+See Documentation",https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsys_kb_id%3D6449bbbcdb353fc040b62c23ca9619dd%26sysparm_rank%3D5%26sysparm_tsqueryId%3D096a721cdb9a734040b62c23ca961908,,
+"  00:30 GMT
+19:30 EST",a,a,a,a,a,,,Check total number of jobs,At around 19:30 check check the total number of jobs on the system and fill the totals in on the shift report,https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsysparm_article%3DKB0010195,,"BQ 
+JD FT:"
+"  02:00 GMT
+21:00 EST",a,a,a,a,a,a,a,Workstation Backups Begin,"Snaps for these will begin and then their backups will start shortly after. Emails will be received when these start & complete but ensure that you are logged into a CSABNC session and monitoring for failures and OPCOMS.
+See Documentation",https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsys_kb_id%3D285d16e6db6d3bc81cd6d776489619b5%26sysparm_rank%3D2%26sysparm_tsqueryId%3D6faa725cdb9a734040b62c23ca96199a,,
+"  02:45 GMT
+21:45 EST",a,a,a,a,a,,,Queue Limit Changes,"Assuming the UBN and UCB1 URRS and XTRACT Jobs are all complete and the Highprior* queue is drained, then you can run the next set of queue changes. If there are still outstanding UBN and UCB1 jobs then hold off on these changes until 22:30 EST
+",https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsysparm_article%3DKB0010195,,"Check UBN and UCB1 queues are drained using:
+show queue UBN/all
+show queue UCB1/all
+The above should show no RS_UR or *XTRACT* Jobs
+
+Queue job limits should now be:
+DAY* = 12
+HIGHPRIO* = 5
+PAR_EXE* = 10
+DAY* = 12
+POSTURR = 1"
+"  03:00 GMT 
+22:00 EST",a,a,a,a,a,,,Check Canada (CSCPRC) URRs,Ensure the 16 Canada URRs have started on the CSCPRC Node.,https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsysparm_article%3DKB0010195,,
+"  03:00 GMT
+22:00 EST",a,a,a,a,a,a,a,MSGLOGGER Check for Backups,Logon to Umenu and check the URR MSGLOGGER Status,https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsys_kb_id%3Dc1da698edb68bb80d3a5d602ca96192a%26sysparm_rank%3D3%26sysparm_tsqueryId%3Db9eafe5cdb9a734040b62c23ca9619ae,,Umenu > Ops > Daily > URRMSG
+"  03:00 GMT
+22:00 EST",,,a,,,,,Walmart Payroll Processing - SPE503_HLDADD_UPDATE_WMT,"WEDNESDAY DAY - SAME WEEK AS THE US PAYROLL FILE. RUNS AFTER THE URR.
+When the WALMART Payroll Proccessing job (SPE503_HLDADD_UPDATE_WMT) is complete, abort the ""CBPEND_PROCESS_WMT"" job. Then using the DENT command, delete it to make sure it isn't re-run.
+See Documentation
+",https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsysparm_article%3DKB0010237,,EXTREMELY CRITICAL
+"  03:45 GMT
+22:45 EST",a,a,a,a,a,,,Bank of New York Mellon - BNY_DAILY_XTRACT Jobs,Check to see that all BNY_DAILY_XTRACT Jobs are completed,,,JD J:BNY_DAILY_XTRACT
+"  04:00 GMT
+23:00 EST",a,,,,,,,Walmart Payroll File Transfer (US),"MONDAY  ON RECEIPT OF EMAIL - IT IS IMPORTANT THAT YOU CHECK THE DOCUMENTATION AND THE INCLUDED SCHEDULE!
+See Documentation
+",https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsysparm_article%3DKB0010237,,EXTREMELY CRITICAL
+"  04:00 GMT
+23:00 EST",,a,,,,,,Walmart Payroll File Transfer (CANADA),"TUESDAY ON RECEIPT OF EMAIL - IT IS IMPORTANT THAT YOU CHECK THE DOCUMENTATION AND THE INCLUDED SCHEDULE!
+See Documentation
+",https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsysparm_article%3DKB0010237,,EXTREMELY CRITICAL
+"  04:00 GMT
+23:00 EST",,a,,,,,,WALMART PAYROLL FILE TRANSFER (RHODE ISLAND),"TUESDAY ON RECEIPT OF EMAIL - IT IS IMPORTANT THAT YOU CHECK THE DOCUMENTATION AND THE INCLUDED SCHEDULE!
+See Documentation
+",https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsysparm_article%3DKB0010237,,EXTREMELY CRITICAL
+"  04:00 GMT
+23:00 EST",a,a,a,a,a,a,a,Start Defrags for COMMONAPP,,https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsysparm_article%3DKB0010233,,Umenu > Ops > Daily > DFG
+"  04:30 GMT
+23:30 EST",a,a,a,a,a,,,Check Daily Outbound BNYM ADR File Transfer,"Emails with subjects:
+##### Pull Outgoing BNYM ADR Transaction File from SCRIP Production (CSAPRC) #####
+##### Send Outgoing ADR Transaction Production File to BNY-Mellon #####
+Should be received by 04:30AM GMT",https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsysparm_article%3DKB0010243,,"If no emails are received, check that APPEND_SORT_BNY_DAILY_TRAN  has completed on Prod. If job has completed but no emails then contact On-Call Data Ops"
+"  04:30 GMT
+23:30 EST",a,a,a,a,a,,,Start Defrags for the 3 Production Cluster Datadisks,,https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsysparm_article%3DKB0010233,,"FOR THE NAMES OF THE 3 DATADISKS TO BE DEFRAGMENTED, REFER TO THE DAILY E-MAIL FROM “System on CSAPRC system@navmsmail.net”  with the subject:
+“Daily DEFRAG candidates”. It arrives in the NA group Inbox at approximately 6 PM Eastern Time"
+" 04:30 GMT
+23:30 EST",a,a,a,a,a,a,a,Start Defrags of DUALLOGDISK4 and DUALLOGDISK5,,https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsysparm_article%3DKB0010233,,
+"  04:30 GMT
+23:30 EST",a,a,a,a,a,a,a,Start Defrags for SCRIPCOYDISK and SCRIPLOGDISK and SCRIPLOG2,,https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsysparm_article%3DKB0010233,,
+"04:40 GMT
+23:40 EST",a,a,a,a,a,a,a,Check for any overrunning backups on Production. Terminate the ones still running,"***TIME CRITICAL***
+JD NW_BCK$CSABN* J:CSAPRC
+If anything appears, abort it. 
+Terminate clone. 
+Delete entry.
+
+***DO NOT DELETE AFTER MIDNIGHT EST***
+
+
+",,,
+"  04:53 GMT
+11:53 EST",a,a,a,a,a,a,a,Update backup totals on NA shift report,"Around that time we will receive an email with the details of backups, please update totals in the shift report",,,"if email is not received we can use this command in VMS in CSABN cluster instead @OPSCOM:CK_NW_BCKPS , and then update the shift report with the totals."
+"  05:00 GMT
+00:00 EST",a,a,a,a,a,a,a,CSAPRC & Non-Production Snaps Begin,"Snaps for these will begin, starting with production. Emails will be received when these start & complete but ensure that you are logged into a CSABNC session and monitoring for failures and OPCOMS
+See Documentation
+",https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsys_kb_id%3D285d16e6db6d3bc81cd6d776489619b5%26sysparm_rank%3D2%26sysparm_tsqueryId%3D6faa725cdb9a734040b62c23ca96199a,,
+"  05:00 GMT
+00:00 EST",a,a,a,a,a,,,Queue Limit Changes,"The MAINURR queue should complete all its URRs by 00:00. Assuming the DAY queue is no higher than 4000 you can run the next set of queue changes. On a month end you may see this time vary. If the queue count is high it’s a good idea to let the DAY queues drain to around 4000 before running the changes, therefore on a month end you will probably need to hold off for an hour or so before making these changes.
+",https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsysparm_article%3DKB0010195,,"Queue job limits should now be:
+DAY* = 12
+HIGHPRIO* = 5
+PAR_EXE* = 10
+DAY* = 12
+POSTURR = 5
+"
+"  06:00 GMT
+01:00 EST",a,a,a,a,a,,,Check for Long Running URRs,"At this point most of the main URRS should be done (unless it’s a month end) and we are just waiting for the rest at 03:00. It’s a good idea to check what is left. 
+",https://computershare.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsysparm_article%3DKB0010195,,"JD J:RS_UR
+
+As jobs on NA VMS don’t retain on completion you should only see the URRs left to run at 3am."
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,

@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "Repositorie
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{500EC7C1-329E-4591-9CA4-C2A6DD1B6904}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebUI", "WebUI\WebUI.csproj", "{4C6BAF49-E7FB-45F0-B73B-3B184B233936}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebUI", "WebUI\WebUI.csproj", "{4C6BAF49-E7FB-45F0-B73B-3B184B233936}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataImporter", "DataImporter\DataImporter.csproj", "{A8E4530C-45BA-436A-ADA6-02093B772E6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{4C6BAF49-E7FB-45F0-B73B-3B184B233936}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C6BAF49-E7FB-45F0-B73B-3B184B233936}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C6BAF49-E7FB-45F0-B73B-3B184B233936}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8E4530C-45BA-436A-ADA6-02093B772E6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8E4530C-45BA-436A-ADA6-02093B772E6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8E4530C-45BA-436A-ADA6-02093B772E6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8E4530C-45BA-436A-ADA6-02093B772E6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

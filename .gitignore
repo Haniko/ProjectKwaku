@@ -17,3 +17,5 @@
 /ProjectKwaku/Models/bin/Release/netcoreapp3.1
 /ProjectKwaku/Repositories/bin/Release/netcoreapp3.1
 /ProjectKwaku/Services/bin/Release/netcoreapp3.1
+/ProjectKwaku/DataImporter/bin/Debug/netcoreapp3.1
+/ProjectKwaku/DataImporter/obj

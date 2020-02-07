@@ -24,7 +24,6 @@ export class TasksPage extends Component {
     async getTasks(checkSheetTypeId) {
         const response = await fetch('api/checksheet/' + checkSheetTypeId);
         const data = await response.json();
-        console.log(data);
         this.setState({ tasks: data, loading: false });
     }
 

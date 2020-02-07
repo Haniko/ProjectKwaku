@@ -13,17 +13,17 @@ namespace Models.Entities
         [ForeignKey("CheckSheetType")]
         public int CheckSheetTypeId { get; set; }
 
-        public string Title { get; set; }
+        public int ActiveDays { get; set; }
 
         public string Description { get; set; }
-
-        public string Url { get; set; }
-
-        public int ActiveDays { get; set; }
 
         public string Notes { get; set; }
 
         public TimeSpan StartTimeUtc { get; set; }
+
+        public string Title { get; set; }
+
+        public string Url { get; set; }
 
         public DateTime ValidFromDateUtc { get; set; }
 
