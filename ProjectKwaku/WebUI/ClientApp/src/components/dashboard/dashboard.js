@@ -6,23 +6,21 @@ export class Dashboard extends Component {
 
     constructor() {
         super();
-        this.state = { checklistTypes: [], loading: true };
+        this.state = { checkSheetTypes: [], loading: true };
     }
 
     componentDidMount() {
-        this.getChecklistTypes();
+        this.getCheckSheetTypes();
     }
 
-    async getChecklistTypes() {
-        const response = await fetch('api/checklisttype/all');
+    async getCheckSheetTypes() {
+        const response = await fetch('api/checksheettype/all');
         const data = await response.json();
-        this.setState({ checklistTypes: data, loading: false });
+        this.setState({ checkSheetTypes: data, loading: false });
     }
 
     render() {
-        let contents = this.state.loading
-            ? <p><em>Loading...</em></p>
-            : Dashboard.renderChecklistTypes(this.state.checklistTypes);
+        let contents = (this.state.loading) ? "" : Dashboard.renderCheckSheetTypes(this.state.checkSheetTypes);
 
         return (
             <div>
@@ -33,7 +31,7 @@ export class Dashboard extends Component {
         );
     }
 
-    static renderChecklistTypes(checklistTypes) {
+    static renderCheckSheetTypes(checkSheetTypes) {
         return (
             <table className='table table-striped' aria-labelledby="tabelLabel">
                 <thead>
@@ -44,10 +42,10 @@ export class Dashboard extends Component {
                 </thead>
                 <tbody>
                     {
-                        checklistTypes.map(checklistType =>
-                            <tr key={checklistType.checklistTypeId}>
-                                <td>{checklistType.checklistTypeId}</td>
-                                <td>{checklistType.name}</td>
+                        checkSheetTypes.map(checkSheetType =>
+                            <tr key={checkSheetType.checkSheetTypeId}>
+                                <td>{checkSheetType.checkSheetTypeId}</td>
+                                <td>{checkSheetType.name}</td>
                             </tr>
                         )
                     }

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace Repositories
 {
-    public interface IChecklistTypeRepository
+    public interface ICheckSheetTypeRepository
     {
-        IList<ChecklistType> GetAll();
+        IList<CheckSheetType> GetAll();
     }
 }

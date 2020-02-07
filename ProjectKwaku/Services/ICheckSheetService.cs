@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace Services
 {
-    public interface IChecklistService
+    public interface ICheckSheetService
     {
-        IList<Checklist> GetAll(int checklistTypeId);
+        IList<CheckSheet> GetAll(int checkSheetTypeId);
     }
 }

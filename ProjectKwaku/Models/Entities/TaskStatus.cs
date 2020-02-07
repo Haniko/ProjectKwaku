@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Models.Entities
 {
@@ -11,9 +12,11 @@ namespace Models.Entities
 
     public class TaskStatus
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int TaskStatusId { get; set; }
 
-        public int ChecklistId { get; set; }
+        public int CheckSheetId { get; set; }
 
         [ForeignKey("Task")]
         public int TaskId { get; set; }

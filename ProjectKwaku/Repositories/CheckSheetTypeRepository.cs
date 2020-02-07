@@ -5,18 +5,18 @@ using System.Linq;
 
 namespace Repositories
 {
-    public class ChecklistTypeRepository : IChecklistTypeRepository
+    public class CheckSheetTypeRepository : ICheckSheetTypeRepository
     {
         private readonly IDbContext dbContext;
 
-        public ChecklistTypeRepository(IDbContext dbContext)
+        public CheckSheetTypeRepository(IDbContext dbContext)
         {
             this.dbContext = dbContext;
         }
 
-        public IList<ChecklistType> GetAll()
+        public IList<CheckSheetType> GetAll()
         {
-            return dbContext.ChecklistTypes.AsNoTracking().ToList();
+            return dbContext.CheckSheetTypes.AsNoTracking().ToList();
         }
     }
 }

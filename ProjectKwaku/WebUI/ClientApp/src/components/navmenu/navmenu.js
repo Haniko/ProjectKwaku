@@ -9,31 +9,31 @@ export class NavMenu extends Component {
         super(props);
 
         this.state = {
-            checklistTypes: [],
+            checkSheetTypes: [],
             loading: true
         };
     }
 
     componentDidMount() {
-        this.getChecklistTypes();
+        this.getCheckSheetTypes();
     }
 
-    async getChecklistTypes() {
-        const response = await fetch('api/checklisttype/all');
+    async getCheckSheetTypes() {
+        const response = await fetch('api/checksheettype/all');
         const data = await response.json();
-        this.setState({ checklistTypes: data, loading: false });
+        this.setState({ checkSheetTypes: data, loading: false });
     }
 
-    getUrl(checklistTypeId) {
-        return "/checklist/" + checklistTypeId;
+    getUrl(checkSheetTypeId) {
+        return "/checksheet/" + checkSheetTypeId;
     }
 
-    getMenuOptions(checklistTypes) {
+    getMenuOptions(checkSheetTypes) {
         return (
-            checklistTypes.map(checklistType =>
-                <li className="sidebar-menu-item checklist-item" key={checklistType.checklistTypeId}>
-                    <NavLink className="sidebar-menu-link d-flex px-4" activeClassName="active" exact to={this.getUrl(checklistType.checklistTypeId)}>
-                        <span className="sidebar-menu-text d-flex align-items-center text-white">{checklistType.name}</span>
+            checkSheetTypes.map(checkSheetType =>
+                <li className="sidebar-menu-item checklist-item" key={checkSheetType.checkSheetTypeId}>
+                    <NavLink className="sidebar-menu-link d-flex px-4" activeClassName="active" exact to={this.getUrl(checkSheetType.checkSheetTypeId)}>
+                        <span className="sidebar-menu-text d-flex align-items-center text-white">{checkSheetType.name}</span>
                     </NavLink>
                 </li>
             )
@@ -41,9 +41,7 @@ export class NavMenu extends Component {
     }
 
     render() {
-        let menuOptions = this.state.loading
-            ? <p><em>Loading...</em></p>
-            : this.getMenuOptions(this.state.checklistTypes);
+        let menuOptions = (this.state.loading) ? "" : this.getMenuOptions(this.state.checkSheetTypes);
 
         return (
             <div id="sidebar" className="position-fixed h-100 brand-purple-bg">
@@ -104,7 +102,7 @@ export class NavMenu extends Component {
                             </li>
 
                             <li className="sidebar-menu-section checklist-item d-flex px-4 mt-4">
-                                <h4 className="sidebar-menu-section-text d-flex align-items-center m-0 text-white">Checklists</h4>
+                                <h4 className="sidebar-menu-section-text d-flex align-items-center m-0 text-white">Check Sheets</h4>
                             </li>
 
                             {menuOptions}

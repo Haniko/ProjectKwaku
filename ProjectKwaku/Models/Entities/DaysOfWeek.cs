@@ -5,14 +5,13 @@ namespace Models.Entities
     [Flags]
     public enum DaysOfWeek : int
     {
-        None = 0,
-        Monday = 1,
-        Tuesday = 2,
-        Wednesday = 4,
-        Thursday = 8,
-        Friday = 16,
-        Saturday = 32,
-        Sunday = 64,
+        Mon = 1,
+        Tue = 2,
+        Wed = 4,
+        Thu = 8,
+        Fri = 16,
+        Sat = 32,
+        Sun = 64,
         Everyday = 128
     }
 }

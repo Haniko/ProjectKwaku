@@ -30,12 +30,12 @@ namespace WebUI
             });
 
             services
-                .AddDbContext<ChecklistContext>()
-                .AddTransient<IChecklistRepository, ChecklistRepository>()
-                .AddTransient<IChecklistTypeRepository, ChecklistTypeRepository>()
-                .AddTransient<IChecklistService, ChecklistService>()
-                .AddTransient<IChecklistTypeService, ChecklistTypeService>()
-                .AddScoped<IDbContext, ChecklistContext>();
+                .AddDbContext<CheckSheetContext>()
+                .AddTransient<ICheckSheetRepository, CheckSheetRepository>()
+                .AddTransient<ICheckSheetTypeRepository, CheckSheetTypeRepository>()
+                .AddTransient<ICheckSheetService, CheckSheetService>()
+                .AddTransient<ICheckSheetTypeService, CheckSheetTypeService>()
+                .AddScoped<IDbContext, CheckSheetContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,7 +43,7 @@ namespace WebUI
         {
             using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
             {
-                var context = serviceScope.ServiceProvider.GetRequiredService<ChecklistContext>();
+                var context = serviceScope.ServiceProvider.GetRequiredService<CheckSheetContext>();
                 context.Database.EnsureCreated();
             }
 

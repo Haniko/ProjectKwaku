@@ -10,8 +10,8 @@ namespace Models.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int TaskId { get; set; }
 
-        [ForeignKey("ChecklistType")]
-        public int ChecklistTypeId { get; set; }
+        [ForeignKey("CheckSheetType")]
+        public int CheckSheetTypeId { get; set; }
 
         public string Title { get; set; }
 
@@ -21,12 +21,12 @@ namespace Models.Entities
 
         public int ActiveDays { get; set; }
 
-        public string TimeFrame { get; set; }
+        public TimeSpan StartTimeUtc { get; set; }
 
-        public DateTime StartDate { get; set; }
+        public DateTime ValidFromDateUtc { get; set; }
 
-        public DateTime? EndDate { get; set; }
+        public DateTime? ValidUntilDateUtc { get; set; }
 
-        public virtual ChecklistType ChecklistType { get; set; }
+        public virtual CheckSheetType ChecklistType { get; set; }
     }
 }
