@@ -13,7 +13,7 @@ export default class App extends Component {
             <Layout>
                 <Route exact path='/' component={HomePage} />
                 <Route path='/counter' component={Counter} />
-                <Route path='/checklist/:checklistTypeId' component={TasksPage} />
+                <Route path='/checksheet/:checkSheetTypeId' component={TasksPage} />
             </Layout>
         );
     }

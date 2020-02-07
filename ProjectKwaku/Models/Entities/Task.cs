@@ -21,6 +21,8 @@ namespace Models.Entities
 
         public int ActiveDays { get; set; }
 
+        public string Notes { get; set; }
+
         public TimeSpan StartTimeUtc { get; set; }
 
         public DateTime ValidFromDateUtc { get; set; }

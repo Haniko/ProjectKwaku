@@ -10,5 +10,7 @@ namespace Models.Entities
         public int CheckSheetTypeId { get; set; }
 
         public string Name { get; set; }
+
+        public string TimeZoneId { get; set; }
     }
 }
