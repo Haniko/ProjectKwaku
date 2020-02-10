@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Repositories
 {
-    public interface ICheckSheetRepository
+    public interface ICheckSheetRepository : IGenericRepository<CheckSheet>
     {
         IList<CheckSheet> GetAll(int checkSheetTypeId);
     }

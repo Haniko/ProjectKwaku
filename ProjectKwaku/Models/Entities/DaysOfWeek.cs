@@ -12,6 +12,6 @@ namespace Models.Entities
         Fri = 16,
         Sat = 32,
         Sun = 64,
-        Everyday = 128
+        Everyday = 127
     }
 }

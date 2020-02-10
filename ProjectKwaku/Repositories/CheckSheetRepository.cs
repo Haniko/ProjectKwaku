@@ -5,13 +5,11 @@ using System.Linq;
 
 namespace Repositories
 {
-    public class CheckSheetRepository : ICheckSheetRepository
+    public class CheckSheetRepository : GenericRepository<CheckSheet>, ICheckSheetRepository
     {
-        private readonly IDbContext dbContext;
-
-        public CheckSheetRepository(IDbContext dbContext)
+        public CheckSheetRepository(CheckSheetContext dbContext)
+            : base(dbContext)
         {
-            this.dbContext = dbContext;
         }
 
         public IList<CheckSheet> GetAll(int checkSheetTypeId)

@@ -1,22 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Models.Entities;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Models.Entities;
 
 namespace Repositories
 {
-    public class CheckSheetTypeRepository : ICheckSheetTypeRepository
+    public class CheckSheetTypeRepository : GenericRepository<CheckSheetType>, ICheckSheetTypeRepository
     {
-        private readonly IDbContext dbContext;
-
-        public CheckSheetTypeRepository(IDbContext dbContext)
+        public CheckSheetTypeRepository(CheckSheetContext dbContext)
+            : base(dbContext)
         {
-            this.dbContext = dbContext;
-        }
-
-        public IList<CheckSheetType> GetAll()
-        {
-            return dbContext.CheckSheetTypes.AsNoTracking().ToList();
         }
     }
 }

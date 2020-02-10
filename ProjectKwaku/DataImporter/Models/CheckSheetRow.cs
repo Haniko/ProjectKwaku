@@ -1,33 +1,34 @@
-﻿using CsvHelper.Configuration.Attributes;
-
-namespace DataImporter.Models
+﻿namespace DataImporter.Models
 {
     class CheckSheetRow
     {
-        public string Mon { get; set; }
+        public int Mon { get; set; }
 
-        public string Tue { get; set; }
+        public int Tue { get; set; }
 
-        public string Wed { get; set; }
+        public int Wed { get; set; }
 
-        public string Thu { get; set; }
+        public int Thu { get; set; }
 
-        public string Fri { get; set; }
+        public int Fri { get; set; }
 
-        public string Sat { get; set; }
+        public int Sat { get; set; }
 
-        public string Sun { get; set; }
-      
-        public string Title { get; set; }
+        public int Sun { get; set; }
 
-        [Name("Brief Description")]
+        public string Comments { get; set; }
+
         public string Description { get; set; }
-
-        [Name("Documentation full Link")]
-        public string DocumentationUrl { get; set; }
 
         public string Notes { get; set; }
 
-        public string Comments { get; set; }
+        public string Title { get; set; }
+
+        public string Url { get; set; }
+
+        public int getActiveDays()
+        {
+            return Mon + Tue + Wed + Thu + Fri + Sat + Sun;
+        }
     }
 }

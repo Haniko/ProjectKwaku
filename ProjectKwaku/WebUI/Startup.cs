@@ -31,11 +31,11 @@ namespace WebUI
 
             services
                 .AddDbContext<CheckSheetContext>()
+                .AddScoped<IDbContext, CheckSheetContext>()
                 .AddTransient<ICheckSheetRepository, CheckSheetRepository>()
                 .AddTransient<ICheckSheetTypeRepository, CheckSheetTypeRepository>()
                 .AddTransient<ICheckSheetService, CheckSheetService>()
-                .AddTransient<ICheckSheetTypeService, CheckSheetTypeService>()
-                .AddScoped<IDbContext, CheckSheetContext>();
+                .AddTransient<ICheckSheetTypeService, CheckSheetTypeService>();                
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
