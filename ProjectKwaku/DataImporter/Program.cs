@@ -28,7 +28,9 @@ namespace DataImporter
                     return configurationBuilder.Build();
                 })
                 .AddTransient<ICheckSheetTypeRepository, CheckSheetTypeRepository>()
+                .AddTransient<IGenericRepository<CheckSheet>, GenericRepository<CheckSheet>>()
                 .AddTransient<IGenericRepository<Task>, GenericRepository<Task>>()
+                .AddTransient<IGenericRepository<TaskStatus>, GenericRepository<TaskStatus>>()
                 .BuildServiceProvider();
 
             Console.WriteLine("====================================================");
@@ -60,7 +62,9 @@ namespace DataImporter
 
             var dataService = new DataService(
                 serviceProvider.GetRequiredService<ICheckSheetTypeRepository>(),
-                serviceProvider.GetRequiredService<IGenericRepository<Task>>()
+                serviceProvider.GetRequiredService<IGenericRepository<CheckSheet>>(),
+                serviceProvider.GetRequiredService<IGenericRepository<Task>>(),
+                serviceProvider.GetRequiredService<IGenericRepository<TaskStatus>>()
             );
 
             foreach (var config in importConfigs)
@@ -70,10 +74,12 @@ namespace DataImporter
                 Console.WriteLine($"> Time Zone: " + config.CheckSheetTimeZoneId);
                 Console.WriteLine($"> File Path: " + config.FilePath);
 
-                int checkSheetTypeId = dataService.AddCheckSheetType(config.CheckSheetName, config.CheckSheetTimeZoneId);
-                int taskCount = dataService.ImportTasks(config.FilePath, checkSheetTypeId);
+                var checkSheetTypeId = dataService.AddCheckSheetType(config.CheckSheetName, config.CheckSheetTimeZoneId);
+                var tasks = dataService.ImportTasks(config.FilePath, checkSheetTypeId);
+                var checkSheetId = dataService.AddCheckSheet(checkSheetTypeId);
 
-                Console.WriteLine($"Tasks Added: " + taskCount);
+
+                Console.WriteLine($"Tasks Added: " + tasks.Length);
                 Console.WriteLine();
             }
 

@@ -14,14 +14,20 @@ namespace DataImporter
     class DataService
     {
         private readonly ICheckSheetTypeRepository checkSheetTypeRepo;
+        private readonly IGenericRepository<CheckSheet> checkSheetRepo;
         private readonly IGenericRepository<Task> taskRepo;
+        private readonly IGenericRepository<TaskStatus> taskStatusRepo;
 
         public DataService(
             ICheckSheetTypeRepository checkSheetTypeRepo,
-            IGenericRepository<Task> taskRepo)
+            IGenericRepository<CheckSheet> checkSheetRepo,
+            IGenericRepository<Task> taskRepo,
+            IGenericRepository<TaskStatus> taskStatusRepo)
         {
+            this.checkSheetRepo = checkSheetRepo;
             this.checkSheetTypeRepo = checkSheetTypeRepo;
             this.taskRepo = taskRepo;
+            this.taskStatusRepo = taskStatusRepo;
         }
 
         public int AddCheckSheetType(string name, string timeZoneId)
@@ -38,7 +44,7 @@ namespace DataImporter
             return checkSheetType.CheckSheetTypeId;
         }
 
-        public int ImportTasks(string filePath, int checkSheetTypeId)
+        public Task[] ImportTasks(string filePath, int checkSheetTypeId)
         {
             using var streamReader = new StreamReader(filePath);
             using var csv = new CsvReader(streamReader, CultureInfo.InvariantCulture)
@@ -59,7 +65,45 @@ namespace DataImporter
             taskRepo.AddMany(tasks);
             taskRepo.SaveChanges();
 
-            return tasks.Length;
+            return tasks;
+        }
+
+        public int AddCheckSheet(int checkSheetTypeId)
+        {
+            var checkSheet = new CheckSheet
+            {
+                CheckSheetTypeId = checkSheetTypeId,
+                SignOffUserId = null,
+                StartDateUtc = DateTime.Today,
+                Comment = "",
+            };
+
+            checkSheetRepo.Add(checkSheet);
+            checkSheetRepo.SaveChanges();
+
+            return checkSheet.CheckSheetId;
+        }
+
+        public void AddTaskStatuses(Task[] tasks, int checkSheetId)
+        {
+            List<TaskStatus> statuses = new List<TaskStatus>();
+
+            foreach(Task task in tasks)
+            {
+                var status = new TaskStatus
+                {
+                    CheckSheetId = checkSheetId,
+                    TaskId = task.TaskId,
+                    AssignedUserId = null,
+                    Comment = "",
+                    State = State.None
+                };
+
+                statuses.Add(status);
+            }
+
+            taskStatusRepo.AddMany(statuses.ToArray());
+            taskStatusRepo.SaveChanges();
         }
 
         private Task[] MapCsvToTasks(List<CheckSheetRow> records, int checkSheetTypeId)
