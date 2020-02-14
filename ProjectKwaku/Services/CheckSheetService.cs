@@ -1,4 +1,4 @@
-﻿using Models.Entities;
+﻿using Models.Dtos;
 using Repositories;
 using System.Collections.Generic;
 
@@ -6,16 +6,21 @@ namespace Services
 {
     public class CheckSheetService : ICheckSheetService
     {
-        private readonly ICheckSheetRepository checkSheetRepository;
+        private readonly ICheckSheetRepository checkSheetRepo;
 
-        public CheckSheetService(ICheckSheetRepository checkSheetRepository)
+        public CheckSheetService(ICheckSheetRepository checkSheetRepo)
         {
-            this.checkSheetRepository = checkSheetRepository;
+            this.checkSheetRepo = checkSheetRepo;
         }
 
-        public IList<CheckSheet> GetAll(int checkSheetTypeId)
+        public CheckSheetDto GetCheckSheet(int checkSheetTypeId)
         {
-            return checkSheetRepository.GetAll(checkSheetTypeId);
+            return checkSheetRepo.GetCheckSheet(checkSheetTypeId);
+        }
+
+        public IEnumerable<CheckSheetSummaryDto> GetDashboard()
+        {
+            return checkSheetRepo.GetDashboard();
         }
     }
 }

@@ -6,32 +6,31 @@ export class Dashboard extends Component {
 
     constructor() {
         super();
-        this.state = { checkSheetTypes: [], loading: true };
+        this.state = { checkSheetDtos: null, loading: true };
     }
 
     componentDidMount() {
-        this.getCheckSheetTypes();
+        this.getDashboard();
     }
 
-    async getCheckSheetTypes() {
-        const response = await fetch('api/checksheettype/all');
+    async getDashboard() {
+        const response = await fetch('api/dashboard');
         const data = await response.json();
-        this.setState({ checkSheetTypes: data, loading: false });
+        this.setState({ checkSheetDtos: data, loading: false });
     }
 
     render() {
-        let contents = (this.state.loading) ? "" : Dashboard.renderCheckSheetTypes(this.state.checkSheetTypes);
+        console.log(this.state);
+        let contents = (this.state.loading) ? "" : Dashboard.renderDashboard(this.state.checkSheetDtos);
 
         return (
             <div>
-                <h1 id="tabelLabel">Checklist Types</h1>
-                <p>This component demonstrates fetching data from the server.</p>
                 {contents}
             </div>
         );
     }
 
-    static renderCheckSheetTypes(checkSheetTypes) {
+    static renderDashboard(checkSheetDtos) {
         return (
             <table className='table table-striped' aria-labelledby="tabelLabel">
                 <thead>
@@ -42,10 +41,12 @@ export class Dashboard extends Component {
                 </thead>
                 <tbody>
                     {
-                        checkSheetTypes.map(checkSheetType =>
-                            <tr key={checkSheetType.checkSheetTypeId}>
-                                <td>{checkSheetType.checkSheetTypeId}</td>
-                                <td>{checkSheetType.name}</td>
+                        checkSheetDtos.map(checkSheetDto =>
+                            <tr key={checkSheetDto.checkSheetTypeId}>
+                                <td>{checkSheetDto.checkSheetTypeId}</td>
+                                <td>{checkSheetDto.completedCount}</td>
+                                <td>{checkSheetDto.inProgressCount}</td>
+                                <td>{checkSheetDto.notStartedCount}</td>
                             </tr>
                         )
                     }

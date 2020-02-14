@@ -101,6 +101,20 @@ export class NavMenu extends Component {
                                 </NavLink>
                             </li>
 
+                            <li className="sidebar-menu-item">
+                                <NavLink className="sidebar-menu-link d-flex px-4" activeClassName="active" exact to="/checksheet/add">
+                                    <span className="sidebar-menu-icon d-flex align-items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1">
+                                            <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24" />
+                                                <path d="M5,8.6862915 L5,5 L8.6862915,5 L11.5857864,2.10050506 L14.4852814,5 L19,5 L19,9.51471863 L21.4852814,12 L19,14.4852814 L19,19 L14.4852814,19 L11.5857864,21.8994949 L8.6862915,19 L5,19 L5,15.3137085 L1.6862915,12 L5,8.6862915 Z M12,15 C13.6568542,15 15,13.6568542 15,12 C15,10.3431458 13.6568542,9 12,9 C10.3431458,9 9,10.3431458 9,12 C9,13.6568542 10.3431458,15 12,15 Z" fill="#ffffff" />
+                                            </g>
+                                        </svg>
+                                    </span>
+
+                                    <span className="sidebar-menu-text d-flex align-items-center text-white">Add Checksheet</span>
+                                </NavLink>
+                            </li>
                             <li className="sidebar-menu-section checklist-item d-flex px-4 mt-4">
                                 <h4 className="sidebar-menu-section-text d-flex align-items-center m-0 text-white">Check Sheets</h4>
                             </li>

@@ -1,10 +1,12 @@
-﻿using Models.Entities;
+﻿using Models.Dtos;
 using System.Collections.Generic;
 
 namespace Services
 {
     public interface ICheckSheetService
     {
-        IList<CheckSheet> GetAll(int checkSheetTypeId);
+        CheckSheetDto GetCheckSheet(int checkSheetTypeId);
+
+        IEnumerable<CheckSheetSummaryDto> GetDashboard();
     }
 }

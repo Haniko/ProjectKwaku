@@ -1,10 +1,13 @@
-﻿using Models.Entities;
+﻿using Models.Dtos;
+using Models.Entities;
 using System.Collections.Generic;
 
 namespace Repositories
 {
     public interface ICheckSheetRepository : IGenericRepository<CheckSheet>
     {
-        IList<CheckSheet> GetAll(int checkSheetTypeId);
+        CheckSheetDto GetCheckSheet(int checkSheetTypeId);
+
+        IEnumerable<CheckSheetSummaryDto> GetDashboard();
     }
 }

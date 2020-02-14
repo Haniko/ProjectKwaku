@@ -8,7 +8,7 @@ export class TasksPage extends Component {
 
         this.state = {
             checkSheetTypeId: props.match.params.checkSheetTypeId,
-            tasks: [],
+            checkSheetDto: {},
             loading: true
         };
     }
@@ -24,10 +24,12 @@ export class TasksPage extends Component {
     async getTasks(checkSheetTypeId) {
         const response = await fetch('api/checksheet/' + checkSheetTypeId);
         const data = await response.json();
-        this.setState({ tasks: data, loading: false });
+        this.setState({ checkSheetDto: data, loading: false });
     }
 
     render() {
+        var content = (this.state.loading) ? "<h1>Loading...</h1>" : this.renderTable(this.state.checkSheetDto);
+
         return (
             <div className="d-flex flex-column p-3">
                 <div className="d-flex flex-row align-items-center justify-content-between mb-3 panel p-3 bg-white rounded">
@@ -57,26 +59,33 @@ export class TasksPage extends Component {
                                     <th scope="col">Assigned To</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                {
-                                    this.state.tasks.map(taskDto =>
-                                        <tr key={taskDto.taskId}>
-                                            <td>{taskDto.displayTime}</td>
-                                            <td>{taskDto.taskTitle}</td>
-                                            <td>{taskDto.taskDescription}</td>
-                                            <td>{taskDto.taskNotes}</td>
-                                            <td>{taskDto.taskComment}</td>
-                                            <td>{taskDto.status}</td>
-                                            <td>{taskDto.assignedUserName}</td>
-                                        </tr>
-                                    )
-                                }
-                            </tbody>
+
+                            {content}
                         </table>
                     </div>
                 </div>
             </div>
         );
+    }
+
+    renderTable(checkSheetDto) {
+        return (
+            <tbody>
+                {
+                    checkSheetDto.tasks.map(taskDto =>
+                        <tr key={taskDto.taskId}>
+                            <td>TBC</td>
+                            <td>{taskDto.taskTitle}</td>
+                            <td>{taskDto.taskDescription}</td>
+                            <td>{taskDto.taskNotes}</td>
+                            <td>{taskDto.taskComment}</td>
+                            <td>{taskDto.status}</td>
+                            <td>{taskDto.assignedUserName}</td>
+                        </tr>
+                    )
+                }
+            </tbody>    
+        )
     }
 }
 

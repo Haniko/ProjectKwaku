@@ -77,6 +77,7 @@ namespace DataImporter
                 var checkSheetTypeId = dataService.AddCheckSheetType(config.CheckSheetName, config.CheckSheetTimeZoneId);
                 var tasks = dataService.ImportTasks(config.FilePath, checkSheetTypeId);
                 var checkSheetId = dataService.AddCheckSheet(checkSheetTypeId);
+                dataService.AddTaskStatuses(tasks, checkSheetId);
 
 
                 Console.WriteLine($"Tasks Added: " + tasks.Length);
