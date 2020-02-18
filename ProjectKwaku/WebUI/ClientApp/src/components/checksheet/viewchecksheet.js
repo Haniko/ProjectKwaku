@@ -1,7 +1,7 @@
 ﻿import React, { Component } from 'react';
 
-export class TasksPage extends Component {
-    static displayName = TasksPage.name;
+export class ViewCheckSheet extends Component {
+    static displayName = ViewCheckSheet.name;
 
     constructor(props) {
         super(props);
@@ -22,7 +22,7 @@ export class TasksPage extends Component {
     }
 
     async getTasks(checkSheetTypeId) {
-        const response = await fetch('api/checksheet/' + checkSheetTypeId);
+        const response = await fetch('api/checksheets/' + checkSheetTypeId);
         const data = await response.json();
         this.setState({ checkSheetDto: data, loading: false });
     }

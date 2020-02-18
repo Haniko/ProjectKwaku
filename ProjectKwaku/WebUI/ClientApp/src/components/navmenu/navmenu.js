@@ -19,7 +19,7 @@ export class NavMenu extends Component {
     }
 
     async getCheckSheetTypes() {
-        const response = await fetch('api/checksheettype/all');
+        const response = await fetch('api/checksheets/types');
         const data = await response.json();
         this.setState({ checkSheetTypes: data, loading: false });
     }

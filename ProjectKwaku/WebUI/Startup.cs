@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Models.Entities;
 using Repositories;
 using Services;
 
@@ -33,9 +34,8 @@ namespace WebUI
                 .AddDbContext<CheckSheetContext>()
                 .AddScoped<IDbContext, CheckSheetContext>()
                 .AddTransient<ICheckSheetRepository, CheckSheetRepository>()
-                .AddTransient<ICheckSheetTypeRepository, CheckSheetTypeRepository>()
                 .AddTransient<ICheckSheetService, CheckSheetService>()
-                .AddTransient<ICheckSheetTypeService, CheckSheetTypeService>();                
+                .AddTransient<IGenericRepository<CheckSheetType>, GenericRepository<CheckSheetType>>();               
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

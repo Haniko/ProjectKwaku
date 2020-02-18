@@ -3,8 +3,8 @@ import { Route, Switch } from 'react-router';
 import { Counter } from './components/Counter';
 import { HomePage } from './components/homepage/homepage';
 import { Layout } from './components/layout/layout';
-import { TasksPage } from './components/taskspage/taskspage';
-import { AddChecksheet } from './components/addchecksheet/addchecksheet';
+import { ViewCheckSheet } from './components/checksheet/viewchecksheet';
+import { AddCheckSheet } from './components/checksheet/addchecksheet';
 
 export default class App extends Component {
     static displayName = App.name;
@@ -15,8 +15,8 @@ export default class App extends Component {
                 <Route exact path='/' component={HomePage} />
                 <Route path='/counter' component={Counter} />
                 <Switch>
-                    <Route exact path='/checksheet/add' component={AddChecksheet} />
-                    <Route path='/checksheet/:checkSheetTypeId' component={TasksPage} />
+                    <Route exact path='/checksheet/add' component={AddCheckSheet} />
+                    <Route exact path='/checksheet/:checkSheetTypeId' component={ViewCheckSheet} />
                 </Switch>
             </Layout>
         );

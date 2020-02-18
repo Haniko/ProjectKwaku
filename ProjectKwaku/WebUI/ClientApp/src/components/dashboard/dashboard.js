@@ -14,7 +14,7 @@ export class Dashboard extends Component {
     }
 
     async getDashboard() {
-        const response = await fetch('api/dashboard');
+        const response = await fetch('/api/checksheets/summary');
         const data = await response.json();
         this.setState({ checkSheetDtos: data, loading: false });
     }

@@ -19,3 +19,4 @@
 /ProjectKwaku/Services/bin/Release/netcoreapp3.1
 /ProjectKwaku/DataImporter/bin/Debug/netcoreapp3.1
 /ProjectKwaku/DataImporter/obj
+/ProjectKwaku/node_modules

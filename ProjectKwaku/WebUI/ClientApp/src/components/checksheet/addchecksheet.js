@@ -1,8 +1,8 @@
 ﻿import React, { Component } from 'react';
 import './addchecksheet.css';
 
-export class AddChecksheet extends Component {
-    static displayName = AddChecksheet.name;
+export class AddCheckSheet extends Component {
+    static displayName = AddCheckSheet.name;
 
     constructor() {
         super();
