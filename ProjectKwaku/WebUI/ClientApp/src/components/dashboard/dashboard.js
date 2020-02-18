@@ -36,7 +36,10 @@ export class Dashboard extends Component {
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Name</th>
+                        <th>Checksheet Name</th>
+                        <th>Completed</th>
+                        <th>In Progress</th>
+                        <th>Not Started</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,6 +47,7 @@ export class Dashboard extends Component {
                         checkSheetDtos.map(checkSheetDto =>
                             <tr key={checkSheetDto.checkSheetTypeId}>
                                 <td>{checkSheetDto.checkSheetTypeId}</td>
+                                <td>{checkSheetDto.checkSheetName}</td>
                                 <td>{checkSheetDto.completedCount}</td>
                                 <td>{checkSheetDto.inProgressCount}</td>
                                 <td>{checkSheetDto.notStartedCount}</td>
