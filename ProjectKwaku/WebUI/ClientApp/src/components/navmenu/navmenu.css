@@ -17,6 +17,7 @@
 
 .sidebar-menu-link {
     min-height: 44px;
+    text-decoration: none;
 }
 
 .sidebar-menu-icon {
@@ -81,16 +82,15 @@
         visibility: hidden;
     }
 
-.active .sidebar-menu-link {
+.active.sidebar-menu-link {
     background-color: #5e2050;
 }
+
 
 .active .sidebar-menu-text {
     color: #ffffff;
     opacity: 1.0;
 }
-
-/* Active */
 
 .active .sidebar-menu-icon > svg {
     fill-opacity: 1.0;
@@ -101,6 +101,10 @@
     fill-opacity: 1.0;
 }
 
-.sidebar-menu-item:hover {
+.sidebar-menu-link :hover {
+    text-decoration: none;
+}
+
+.sidebar-menu-item :hover {
     background-color: #5e2050;
 }
