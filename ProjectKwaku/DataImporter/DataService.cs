@@ -13,14 +13,14 @@ namespace DataImporter
 {
     class DataService
     {
-        private readonly ICheckSheetTypeRepository checkSheetTypeRepo;
         private readonly IGenericRepository<CheckSheet> checkSheetRepo;
+        private readonly IGenericRepository<CheckSheetType> checkSheetTypeRepo;
         private readonly IGenericRepository<Task> taskRepo;
         private readonly IGenericRepository<TaskStatus> taskStatusRepo;
 
         public DataService(
-            ICheckSheetTypeRepository checkSheetTypeRepo,
             IGenericRepository<CheckSheet> checkSheetRepo,
+            IGenericRepository<CheckSheetType> checkSheetTypeRepo,
             IGenericRepository<Task> taskRepo,
             IGenericRepository<TaskStatus> taskStatusRepo)
         {

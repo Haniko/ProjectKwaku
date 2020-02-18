@@ -27,8 +27,8 @@ namespace DataImporter
                     configurationBuilder.AddJsonFile(appSettingsPath);
                     return configurationBuilder.Build();
                 })
-                .AddTransient<ICheckSheetTypeRepository, CheckSheetTypeRepository>()
                 .AddTransient<IGenericRepository<CheckSheet>, GenericRepository<CheckSheet>>()
+                .AddTransient<IGenericRepository<CheckSheetType>, GenericRepository<CheckSheetType>>()
                 .AddTransient<IGenericRepository<Task>, GenericRepository<Task>>()
                 .AddTransient<IGenericRepository<TaskStatus>, GenericRepository<TaskStatus>>()
                 .BuildServiceProvider();
@@ -61,8 +61,8 @@ namespace DataImporter
             Console.WriteLine("                                                    ");
 
             var dataService = new DataService(
-                serviceProvider.GetRequiredService<ICheckSheetTypeRepository>(),
                 serviceProvider.GetRequiredService<IGenericRepository<CheckSheet>>(),
+                serviceProvider.GetRequiredService<IGenericRepository<CheckSheetType>>(),
                 serviceProvider.GetRequiredService<IGenericRepository<Task>>(),
                 serviceProvider.GetRequiredService<IGenericRepository<TaskStatus>>()
             );
