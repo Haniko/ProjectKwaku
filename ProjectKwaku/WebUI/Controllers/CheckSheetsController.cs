@@ -22,6 +22,12 @@ namespace WebUI.Controllers
             this.checkSheetTypeRepo = checkSheetTypeRepo;
         }
 
+        [HttpPost("types")]
+        public CheckSheetType AddType(CheckSheetType checkSheetType)
+        {
+            return checkSheetType;
+        }
+
         [HttpGet("summary")]
         public IEnumerable<CheckSheetSummaryDto> GetSummary()
         {
