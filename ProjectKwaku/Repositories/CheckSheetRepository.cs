@@ -27,6 +27,7 @@ namespace Repositories
                 .Select(x => new CheckSheetDto
                 {
                     CheckSheetTypeId = x.CheckSheetTypeId,
+                    CheckSheetName = x.CheckSheetType.Name,
                     StartDateUtc = x.StartDateUtc,
                     Tasks = x.TaskStatuses.Select(taskStatus => new TaskDto
                     {

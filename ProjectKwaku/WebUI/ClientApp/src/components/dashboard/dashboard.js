@@ -1,5 +1,6 @@
 ﻿import React, { Component } from 'react';
 import './dashboard.css';
+import '../header/header.css';
 
 export class Dashboard extends Component {
     static displayName = Dashboard.name;
@@ -20,13 +21,25 @@ export class Dashboard extends Component {
     }
 
     render() {
-        console.log(this.state);
         let contents = (this.state.loading) ? "" : Dashboard.renderDashboard(this.state.checkSheetDtos);
 
         return (
-            <div>
-                {contents}
-            </div>
+            <>
+                <div id="sub-header" className="d-flex flex-row align-items-center justify-content-between py-0 px-4 bg-white">
+                    <div>
+                        <h4 id="sub-header-title" className="m-0 p-0">Dashboard</h4>
+                    </div>
+
+                    <div className="d-flex flex-row align-items-center justify-content-between">
+                        <button className="pr-4">Today</button>
+                        <button className="btn btn-primary btn-sm">Viewing: 8 Jan 2020 <i className="ml-1 fas fa-angle-down"></i></button>
+                    </div>
+                </div>
+
+                <div>
+                    {contents}
+                    </div>
+             </>
         );
     }
 

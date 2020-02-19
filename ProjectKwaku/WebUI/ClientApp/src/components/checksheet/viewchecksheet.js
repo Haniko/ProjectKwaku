@@ -17,7 +17,7 @@ export class ViewCheckSheet extends Component {
         this.getTasks(this.state.checkSheetTypeId);
     }
 
-    componentWillReceiveProps(props) {
+    componentDidUpdate(props) {
         this.getTasks(props.match.params.checkSheetTypeId);
     }
 
@@ -31,60 +31,75 @@ export class ViewCheckSheet extends Component {
         var content = (this.state.loading) ? "<h1>Loading...</h1>" : this.renderTable(this.state.checkSheetDto);
 
         return (
-            <div className="d-flex flex-column p-3">
-                <div className="d-flex flex-row align-items-center justify-content-between mb-3 panel p-3 bg-white rounded">
-                    <div className="d-flex flex-row align-items-center">
-                        <span></span>
-                    <h6 className="p-0 m-0 mx-2">8 Jan 2020</h6>
+
+            <>
+
+                <div id="sub-header" className="d-flex flex-row align-items-center justify-content-between py-0 px-4 bg-white">
+                    <div>
+                        <h4 id="sub-header-title" className="m-0 p-0">{this.state.checkSheetDto.checkSheetName}</h4>
                     </div>
-                    <div className="d-flex flex-row align-items-center">
-                        <button className="btn btn-danger btn-sm">Sign Off Required <i className="ml-1 fas fa-angle-down"></i></button>
+
+                    <div className="d-flex flex-row align-items-center justify-content-between">
+                        <button className="pr-4">Today</button>
+                        <button className="btn btn-primary btn-sm">Viewing: 8 Jan 2020 <i className="ml-1 fas fa-angle-down"></i></button>
                     </div>
                 </div>
 
-                <div className="d-flex flex-column panel mb-3 bg-white rounded">
-                    <div className="d-flex flex-row align-items-center justify-content-between border-bottom p-3 mb-3">
-                        <h6 className="p-0 m-0">Tasks</h6>
+                <div className="d-flex flex-column p-3">
+                    <div className="d-flex flex-row align-items-center justify-content-between mb-3 panel p-3 bg-white rounded">
+                        <div className="d-flex flex-row align-items-center">
+                            <span></span>
+                        <h6 className="p-0 m-0 mx-2">8 Jan 2020</h6>
+                        </div>
+                        <div className="d-flex flex-row align-items-center">
+                            <button className="btn btn-danger btn-sm">Sign Off Required <i className="ml-1 fas fa-angle-down"></i></button>
+                        </div>
                     </div>
-                    <div className="p-3">
-                        <table className="table">
-                            <thead className="thead-dark">
-                                <tr>
-                                    <th scope="col">Time</th>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Description</th>
-                                    <th scope="col">Notes</th>
-                                    <th scope="col">Comments</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Assigned To</th>
-                                </tr>
-                            </thead>
 
-                            {content}
-                        </table>
+                    <div className="d-flex flex-column panel mb-3 bg-white rounded">
+                        <div className="d-flex flex-row align-items-center justify-content-between border-bottom p-3 mb-3">
+                            <h6 className="p-0 m-0">Tasks</h6>
+                        </div>
+                        <div className="p-3">
+                                {content}
+                        </div>
                     </div>
                 </div>
-            </div>
+            </>
         );
     }
 
     renderTable(checkSheetDto) {
         return (
-            <tbody>
-                {
-                    checkSheetDto.tasks.map(taskDto =>
-                        <tr key={taskDto.taskId}>
-                            <td>TBC</td>
-                            <td>{taskDto.taskTitle}</td>
-                            <td>{taskDto.taskDescription}</td>
-                            <td>{taskDto.taskNotes}</td>
-                            <td>{taskDto.taskComment}</td>
-                            <td>{taskDto.status}</td>
-                            <td>{taskDto.assignedUserName}</td>
-                        </tr>
-                    )
-                }
-            </tbody>    
+            <table className="table">
+                <thead className="thead-dark">
+                    <tr>
+                        <th scope="col">Time</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Notes</th>
+                        <th scope="col">Comments</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Assigned To</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {
+                        checkSheetDto.tasks.map(taskDto =>
+                            <tr key={taskDto.taskId}>
+                                <td>TBC</td>
+                                <td>{taskDto.taskTitle}</td>
+                                <td>{taskDto.taskDescription}</td>
+                                <td>{taskDto.taskNotes}</td>
+                                <td>{taskDto.taskComment}</td>
+                                <td>{taskDto.status}</td>
+                                <td>{taskDto.assignedUserName}</td>
+                            </tr>
+                        )
+                    }
+                </tbody>
+            </table>
         )
     }
 }
