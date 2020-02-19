@@ -12,6 +12,8 @@ namespace Models.Dtos
 
         public DateTime StartDateUtc { get; set; }
 
+        public string DisplayDate { get; set; }
+
         public IEnumerable<TaskDto> Tasks { get; set; }
     }
 }

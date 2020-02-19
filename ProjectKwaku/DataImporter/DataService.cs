@@ -46,12 +46,12 @@ namespace DataImporter
 
         public Task[] ImportTasks(string filePath, int checkSheetTypeId)
         {
-            using var streamReader = new StreamReader(filePath);
+            using var streamReader = new StreamReader(filePath, Encoding.GetEncoding(1250));
             using var csv = new CsvReader(streamReader, CultureInfo.InvariantCulture)
             {
                 Configuration =
                 {
-                    Encoding = Encoding.UTF8,
+                    Encoding = Encoding.GetEncoding(1250),
                     ShouldSkipRecord = (record) => record.All(field => string.IsNullOrEmpty(field)),
                     TrimOptions = CsvHelper.Configuration.TrimOptions.Trim
                 }

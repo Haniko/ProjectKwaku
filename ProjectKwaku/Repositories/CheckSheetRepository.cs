@@ -29,6 +29,7 @@ namespace Repositories
                     CheckSheetTypeId = x.CheckSheetTypeId,
                     CheckSheetName = x.CheckSheetType.Name,
                     StartDateUtc = x.StartDateUtc,
+                    DisplayDate = x.StartDateUtc.Date.ToShortDateString(),
                     Tasks = x.TaskStatuses.Select(taskStatus => new TaskDto
                     {
                         TaskId = taskStatus.TaskId,
