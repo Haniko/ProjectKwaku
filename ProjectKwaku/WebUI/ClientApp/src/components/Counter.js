@@ -20,14 +20,9 @@ export class Counter extends Component {
 
           <>
 
-              <div id="sub-header" className="d-flex flex-row align-items-center justify-content-between py-0 px-4 bg-white">
+              <div id="sub-header" className="d-flex flex-row align-items-center justify-content-between py-0 px-4 border-bottom bg-white">
                   <div>
                       <h4 id="sub-header-title" className="m-0 p-0">Reporting</h4>
-                  </div>
-
-                  <div className="d-flex flex-row align-items-center justify-content-between">
-                      <button className="pr-4">Today</button>
-                      <button className="btn btn-primary btn-sm">Viewing: 8 Jan 2020 <i className="ml-1 fas fa-angle-down"></i></button>
                   </div>
               </div>
 

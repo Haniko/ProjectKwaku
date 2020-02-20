@@ -34,32 +34,14 @@ export class ViewCheckSheet extends Component {
 
             <>
 
-                <div id="sub-header" className="d-flex flex-row align-items-center justify-content-between py-0 px-4 bg-white">
+                <div id="sub-header" className="d-flex flex-row align-items-center justify-content-between py-0 px-4 border-bottom bg-white">
                     <div>
                         <h4 id="sub-header-title" className="m-0 p-0">{this.state.checkSheetDto.checkSheetName}</h4>
-                    </div>
-
-                    <div className="d-flex flex-row align-items-center justify-content-between">
-                        <button className="pr-4">Today</button>
-                        <button className="btn btn-primary btn-sm">Viewing: 8 Jan 2020 <i className="ml-1 fas fa-angle-down"></i></button>
                     </div>
                 </div>
 
                 <div className="d-flex flex-column p-3">
-                    <div className="d-flex flex-row align-items-center justify-content-between mb-3 panel p-3 bg-white rounded">
-                        <div className="d-flex flex-row align-items-center">
-                            <span></span>
-                        <h6 className="p-0 m-0 mx-2">8 Jan 2020</h6>
-                        </div>
-                        <div className="d-flex flex-row align-items-center">
-                            <button className="btn btn-danger btn-sm">Sign Off Required <i className="ml-1 fas fa-angle-down"></i></button>
-                        </div>
-                    </div>
-
                     <div className="d-flex flex-column panel mb-3 bg-white rounded">
-                        <div className="d-flex flex-row align-items-center justify-content-between border-bottom p-3 mb-3">
-                            <h6 className="p-0 m-0">Tasks</h6>
-                        </div>
                         <div className="p-3">
                                 {content}
                         </div>
