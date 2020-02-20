@@ -18,7 +18,7 @@ export class Layout extends Component {
         return (
             <>
                 <NavMenu onSidebarToggle={this.onSidebarToggle}></NavMenu>
-                <Header></Header>
+                <Header props></Header>
                 <div id="main-content">
                     {this.props.children}
                 </div>
