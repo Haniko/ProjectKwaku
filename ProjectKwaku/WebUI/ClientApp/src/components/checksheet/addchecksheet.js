@@ -1,7 +1,7 @@
 ﻿import React, { Component } from 'react';
 import { Formik, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { PageHeader } from '../header/pageheader';
+import './addchecksheet.css';
 
 export class AddCheckSheet extends Component {
     static displayName = AddCheckSheet.name;
@@ -45,7 +45,16 @@ export class AddCheckSheet extends Component {
         return (
 
             <>
-                <PageHeader page_title={"Add Checksheet"}></PageHeader>
+                <div id="sub-header" className="d-flex flex-row align-items-center justify-content-between py-0 px-4 bg-white">
+                    <div>
+                        <h4 id="sub-header-title" className="m-0 p-0">Add Checksheet</h4>
+                    </div>
+
+                    <div className="d-flex flex-row align-items-center justify-content-between">
+                        <button className="pr-4">Today</button>
+                        <button className="btn btn-primary btn-sm">Viewing: 8 Jan 2020 <i className="ml-1 fas fa-angle-down"></i></button>
+                    </div>
+                </div>
 
                 <Formik
                     initialValues={this.formValues}
