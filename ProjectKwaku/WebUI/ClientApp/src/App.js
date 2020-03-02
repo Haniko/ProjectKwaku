@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router';
-import { Counter } from './components/Counter';
+import { Reporting } from './components/Reporting';
 import { HomePage } from './components/homepage/homepage';
 import { Layout } from './components/layout/layout';
 import { ViewCheckSheet } from './components/checksheet/viewchecksheet';
@@ -13,7 +13,7 @@ export default class App extends Component {
         return (
             <Layout>
                 <Route exact path='/' component={HomePage} />
-                <Route path='/counter' component={Counter} />
+                <Route path='/reporting' component={Reporting} />
                 <Switch>
                     <Route exact path='/checksheet/add' component={AddCheckSheet} />
                     <Route exact path='/checksheet/:checkSheetTypeId' component={ViewCheckSheet} />
