@@ -6,7 +6,12 @@ export class ManageCheckSheet extends Component {
 
     constructor() {
         super();
-        this.state = { checkSheetEditDto: null, checkSheetTypes: null, loading: true, modalOpen: false };
+        this.state = {
+            checkSheetEditDto: null,
+            checkSheetTypes: null,
+            loading: true,
+            editCheckSheetModalOpen: false
+        };
     }
 
     componentDidMount() {
@@ -22,19 +27,14 @@ export class ManageCheckSheet extends Component {
     async getCheckSheetToEdit(checkSheetTypeId) {
         const response = await fetch('/api/checksheets/edit/' + checkSheetTypeId);
         const data = await response.json();
-        console.log(data);
-        this.setState({ checkSheetEditDto: data, loading: false, modalOpen: true });
+        this.setState({ checkSheetEditDto: data, loading: false, editCheckSheetModalOpen: true });
     }
 
-    onRowClick(checkSheetType) {
-        console.log("OnRowClick")
-        console.log(checkSheetType);
+    onCheckSheetTypeRowClick(checkSheetType) {
         this.getCheckSheetToEdit(checkSheetType.checkSheetTypeId);
-        //this.openModal();
     }
 
-    openModal = () => this.setState({ modalOpen: true });
-    closeModal = () => this.setState({ modalOpen: false });
+    closeEditCheckSheetModal = () => this.setState({ editCheckSheetModalOpen: false });
 
     onFormSubmit = (formJson) => {
         fetch('/api/checksheets/types', {
@@ -69,9 +69,9 @@ export class ManageCheckSheet extends Component {
                 {checkSheetTypesTable}
 
                 <EditCheckSheetModal
-                    isModalOpen={this.state.modalOpen}
+                    isModalOpen={this.state.editCheckSheetModalOpen}
                     modalData={this.state.checkSheetEditDto}
-                    onClose={this.closeModal}
+                    onClose={this.closeEditCheckSheetModal}
                     onFormSubmit={this.onSubmit}>
                 </EditCheckSheetModal>
             </>
@@ -90,7 +90,7 @@ export class ManageCheckSheet extends Component {
                 <tbody>
                     {
                         checkSheetTypes.map(checkSheetType =>
-                            <tr key={checkSheetType.checkSheetTypeId} onClick={() => this.onRowClick(checkSheetType)}>
+                            <tr key={checkSheetType.checkSheetTypeId} onClick={() => this.onCheckSheetTypeRowClick(checkSheetType)}>
                                 <td>{checkSheetType.name}</td>
                                 <td>{checkSheetType.timeZoneId}</td>
                             </tr>

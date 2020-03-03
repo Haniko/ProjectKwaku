@@ -50,8 +50,10 @@ export class EditCheckSheetModal extends Component {
     }
 
     getModalBody(props) {
-        console.log(props);
-        let formValues = { name: "", timeZoneId: ""};
+        if (props.modalData == null) return;
+
+        let formValues = { name: "", timeZoneId: "" };
+        let tasksTable = this.getTasksTable(props.modalData.activeTasks);
 
         if (props.modalData) {
             formValues = {
@@ -84,9 +86,9 @@ export class EditCheckSheetModal extends Component {
                                 </select>
                             </div>
 
-                            <div className="form-group">
-                                <button type="submit" className="btn btn-primary mr-2">Submit</button>
-                            </div>
+                            <h5>Tasks</h5>
+
+                            {tasksTable}
                         </Form>
                     )}
                 </Formik>
@@ -97,8 +99,33 @@ export class EditCheckSheetModal extends Component {
     getModalFooter(props) {
         return (
             <Modal.Footer>
+                <button type="submit" className="btn btn-primary mr-2">Submit</button>
                 <Button onClick={props.onClose}>Close</Button>
             </Modal.Footer>
+        )
+    }
+
+    getTasksTable(tasks) {
+        return (
+            <table className="table">
+                <thead className="thead-dark">
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {
+                        tasks.map(task =>
+                            <tr key={task.taskId}>
+                                <td>{task.title}</td>
+                                <td>{task.description}</td>
+                            </tr>
+                        )
+                    }
+                </tbody>
+            </table>
         )
     }
 }
