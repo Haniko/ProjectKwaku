@@ -4,7 +4,7 @@ import { Reporting } from './components/Reporting';
 import { HomePage } from './components/homepage/homepage';
 import { Layout } from './components/layout/layout';
 import { ViewCheckSheet } from './components/checksheet/viewchecksheet';
-import { AddCheckSheet } from './components/checksheet/addchecksheet';
+import { ManageCheckSheet } from './components/checksheet/managechecksheet';
 
 export default class App extends Component {
     static displayName = App.name;
@@ -15,7 +15,7 @@ export default class App extends Component {
                 <Route exact path='/' component={HomePage} />
                 <Route path='/reporting' component={Reporting} />
                 <Switch>
-                    <Route exact path='/checksheet/add' component={AddCheckSheet} />
+                    <Route exact path='/checksheet/manage' component={ManageCheckSheet} />
                     <Route exact path='/checksheet/:checkSheetTypeId' component={ViewCheckSheet} />
                 </Switch>
             </Layout>

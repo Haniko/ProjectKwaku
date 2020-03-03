@@ -11,27 +11,24 @@ namespace WebUI.Controllers
     [ApiController]
     public class CheckSheetsController : ControllerBase
     {
+        private readonly ICheckSheetRepository checkSheetRepo;
         private readonly ICheckSheetService checkSheetService;
         private readonly IGenericRepository<CheckSheetType> checkSheetTypeRepo;
 
         public CheckSheetsController(
+            ICheckSheetRepository checkSheetRepo,
             ICheckSheetService checkSheetService,
             IGenericRepository<CheckSheetType> checkSheetTypeRepo)
         {
+            this.checkSheetRepo = checkSheetRepo;
             this.checkSheetService = checkSheetService;
             this.checkSheetTypeRepo = checkSheetTypeRepo;
-        }
-
-        [HttpPost("types")]
-        public CheckSheetType AddType(CheckSheetType checkSheetType)
-        {
-            return checkSheetType;
         }
 
         [HttpGet("summary")]
         public IEnumerable<CheckSheetSummaryDto> GetSummary()
         {
-            return checkSheetService.GetDashboard();
+            return checkSheetRepo.GetSummary();
         }
 
         [HttpGet("types")]
@@ -40,10 +37,28 @@ namespace WebUI.Controllers
             return checkSheetTypeRepo.GetAll();
         }
 
+        [HttpPost("types")]
+        public CheckSheetType AddType(CheckSheetType checkSheetType)
+        {
+            return checkSheetType;
+        }
+
+        [HttpGet("edit/{checkSheetTypeId}")]
+        public CheckSheetEditDto GetCheckSheetEditDto(int checkSheetTypeId)
+        {
+            return checkSheetService.GetCheckSheetEditDto(checkSheetTypeId);
+        }
+
+        [HttpGet]
+        public IList<CheckSheet> GetAll()
+        {
+            return checkSheetRepo.GetAll();
+        }
+
         [HttpGet("{checkSheetTypeId}")]
         public CheckSheetDto GetCheckSheet(int checkSheetTypeId)
         {
-            return checkSheetService.GetCheckSheet(checkSheetTypeId);
+            return checkSheetRepo.GetCheckSheet(checkSheetTypeId);
         }
     }
 }

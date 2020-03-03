@@ -35,7 +35,8 @@ namespace WebUI
                 .AddScoped<IDbContext, CheckSheetContext>()
                 .AddTransient<ICheckSheetRepository, CheckSheetRepository>()
                 .AddTransient<ICheckSheetService, CheckSheetService>()
-                .AddTransient<IGenericRepository<CheckSheetType>, GenericRepository<CheckSheetType>>();               
+                .AddTransient<IGenericRepository<CheckSheetType>, GenericRepository<CheckSheetType>>()
+                .AddTransient<IGenericRepository<Task>, GenericRepository<Task>>();               
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

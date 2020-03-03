@@ -45,7 +45,7 @@ namespace Repositories
                 .FirstOrDefault(x => x.CheckSheetTypeId == checkSheetTypeId && x.StartDateUtc == DateTime.Today);
         }
 
-        public IEnumerable<CheckSheetSummaryDto> GetDashboard()
+        public IEnumerable<CheckSheetSummaryDto> GetSummary()
         {
             return dbContext.CheckSheets
                 .AsNoTracking()

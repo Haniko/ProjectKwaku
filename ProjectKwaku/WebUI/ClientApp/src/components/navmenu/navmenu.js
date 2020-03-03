@@ -102,7 +102,7 @@ export class NavMenu extends Component {
                             </li>
 
                             <li className="sidebar-menu-item">
-                                <NavLink className="sidebar-menu-link d-flex px-4" activeClassName="active" exact to="/checksheet/add">
+                                <NavLink className="sidebar-menu-link d-flex px-4" activeClassName="active" exact to="/checksheet/manage">
                                     <span className="sidebar-menu-icon d-flex align-items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1">
                                             <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -113,7 +113,7 @@ export class NavMenu extends Component {
                                         </svg>
                                     </span>
 
-                                    <span className="sidebar-menu-text d-flex align-items-center text-white">Add Checksheet</span>
+                                    <span className="sidebar-menu-text d-flex align-items-center text-white">Manage Checksheets</span>
                                 </NavLink>
                             </li>
                             <li className="sidebar-menu-section checklist-item d-flex px-4 mt-4">

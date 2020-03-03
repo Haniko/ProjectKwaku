@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace Repositories
 {
@@ -21,6 +23,11 @@ namespace Repositories
         public void AddMany(TEntity[] entity)
         {
             dbContext.Set<TEntity>().AddRange(entity);
+        }
+
+        public IQueryable<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate)
+        {
+            return dbContext.Set<TEntity>().Where(predicate);
         }
 
         public IList<TEntity> GetAll()

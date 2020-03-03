@@ -7,6 +7,8 @@ namespace Services
     {
         CheckSheetDto GetCheckSheet(int checkSheetTypeId);
 
+        CheckSheetEditDto GetCheckSheetEditDto(int checkSheetTypeId);
+
         IEnumerable<CheckSheetSummaryDto> GetDashboard();
     }
 }

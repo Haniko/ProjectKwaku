@@ -8,6 +8,6 @@ namespace Repositories
     {
         CheckSheetDto GetCheckSheet(int checkSheetTypeId);
 
-        IEnumerable<CheckSheetSummaryDto> GetDashboard();
+        IEnumerable<CheckSheetSummaryDto> GetSummary();
     }
 }
