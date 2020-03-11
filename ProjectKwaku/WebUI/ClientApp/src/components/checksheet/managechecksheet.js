@@ -1,16 +1,17 @@
 ﻿import React, { Component } from 'react';
-import { EditCheckSheetModal } from '../modals/editchecksheetmodal';
+import { EditCheckSheetTypeForm } from '../forms/editchecksheettypeform'
 
 export class ManageCheckSheet extends Component {
     static displayName = ManageCheckSheet.name;
 
     constructor() {
         super();
+
         this.state = {
             checkSheetEditDto: null,
-            checkSheetTypes: null,
+            checkSheetTypes: [],
             loading: true,
-            editCheckSheetModalOpen: false
+            selectedCheckSheetTypeId: 0
         };
     }
 
@@ -27,76 +28,89 @@ export class ManageCheckSheet extends Component {
     async getCheckSheetToEdit(checkSheetTypeId) {
         const response = await fetch('/api/checksheets/edit/' + checkSheetTypeId);
         const data = await response.json();
-        this.setState({ checkSheetEditDto: data, loading: false, editCheckSheetModalOpen: true });
+        this.setState({ selectedCheckSheetTypeId: checkSheetTypeId, checkSheetEditDto: data, loading: false });
     }
 
-    onCheckSheetTypeRowClick(checkSheetType) {
-        this.getCheckSheetToEdit(checkSheetType.checkSheetTypeId);
+    onDropDownChange = (event) => {
+        this.getCheckSheetToEdit(event.target.value);
     }
 
-    closeEditCheckSheetModal = () => this.setState({ editCheckSheetModalOpen: false });
-
-    onFormSubmit = (formJson) => {
-        fetch('/api/checksheets/types', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formJson),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log('Success:', data);
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
+    onTaskClick = (task) => {
+        console.log("onTaskClick");
+        console.log(task);
     }
 
     render() {
-        let checkSheetTypesTable = (this.state.loading)
-            ? ""
-            : this.renderCheckSheetTypesTable(this.state.checkSheetTypes);
+        let checkSheetTypeDropDown = this.getCheckSheetTypesDropDown();
+        let tasksTable = this.getTasksTable();
+        let checkSheetTypeForm = this.getCheckSheetTypeForm();
 
         return (
             <>
                 <div id="sub-header" className="d-flex flex-row align-items-center justify-content-between py-0 px-4 border-bottom bg-white">
-                    <div>
-                        <h4 id="sub-header-title" className="m-0 p-0">Manage Checksheets</h4>
-                    </div>
+                    <h4 id="sub-header-title" className="m-0 p-0">Manage Checksheets</h4>
                 </div>
 
-                {checkSheetTypesTable}
-
-                <EditCheckSheetModal
-                    isModalOpen={this.state.editCheckSheetModalOpen}
-                    modalData={this.state.checkSheetEditDto}
-                    onClose={this.closeEditCheckSheetModal}
-                    onFormSubmit={this.onSubmit}>
-                </EditCheckSheetModal>
+                <div className="m-3">
+                    {checkSheetTypeDropDown}
+                    {checkSheetTypeForm}
+                    {tasksTable}
+                </div>
             </>
-        );
+        )
     }
 
-    renderCheckSheetTypesTable(checkSheetTypes) {
+    getCheckSheetTypesDropDown() {
+        if (this.state.checkSheetTypes == null) return null;
+
+        let options = this.state.checkSheetTypes.map(c =>
+            <option key={c.checkSheetTypeId} value={c.checkSheetTypeId}>{c.name}</option>
+        );
+
         return (
-            <table className="table table-striped">
-                <thead>
+            <>
+                <div className="form-group">
+                    <select className="form-control" value={this.state.selectedCheckSheetTypeId} onChange={this.onDropDownChange}>{options}</select>
+                </div>
+                <hr />
+            </>
+        )
+    }
+
+    getCheckSheetTypeForm() {
+        if (this.state.checkSheetEditDto == null) return null;
+
+        return (
+            <>
+                <div className="form-group">
+                    <EditCheckSheetTypeForm
+                        checkSheetType={this.state.checkSheetEditDto.checkSheetType}>
+                    </EditCheckSheetTypeForm>
+                </div>
+                <hr />
+            </>
+        )
+    }
+
+    getTasksTable() {
+        if (this.state.checkSheetEditDto == null) return null;
+
+        let rows = this.state.checkSheetEditDto.activeTasks.map(t =>
+            <tr key={t.taskId} onClick={() => this.onTaskClick(t)}>
+                <td>{t.title}</td>
+                <td>{t.description}</td>
+            </tr>
+        );
+
+        return (
+            <table className="table table-hover">
+                <thead className="thead-dark">
                     <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Time Zone</th>
+                        <th className="w-25" scope="col">Title</th>
+                        <th scope="col">Description</th>
                     </tr>
                 </thead>
-                <tbody>
-                    {
-                        checkSheetTypes.map(checkSheetType =>
-                            <tr key={checkSheetType.checkSheetTypeId} onClick={() => this.onCheckSheetTypeRowClick(checkSheetType)}>
-                                <td>{checkSheetType.name}</td>
-                                <td>{checkSheetType.timeZoneId}</td>
-                            </tr>
-                        )
-                    }
-                </tbody>
+                <tbody>{rows}</tbody>
             </table>
         )
     }
