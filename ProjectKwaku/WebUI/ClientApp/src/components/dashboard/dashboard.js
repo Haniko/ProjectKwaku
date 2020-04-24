@@ -33,7 +33,7 @@ export class Dashboard extends Component {
 
                 <div>
                     {contents}
-                    </div>
+                </div>
              </>
         );
     }

@@ -113,6 +113,7 @@ namespace DataImporter
                 {
                     CheckSheetTypeId = checkSheetTypeId,
                     ActiveDays = record.getActiveDays(),
+                    Comments = record.Comments,
                     Description = record.Description,
                     Notes = record.Notes,
                     StartTimeUtc = new TimeSpan(),

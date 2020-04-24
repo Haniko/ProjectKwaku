@@ -17,14 +17,18 @@ export class ViewCheckSheet extends Component {
         this.getTasks(this.state.checkSheetTypeId);
     }
 
-    componentDidUpdate(props) {
-        this.getTasks(props.match.params.checkSheetTypeId);
+    componentDidUpdate() {
+        var newId = this.props.match.params.checkSheetTypeId;
+        var currentId = this.state.checkSheetTypeId;
+        if (newId == currentId) return;
+
+        this.getTasks(newId);
     }
 
     async getTasks(checkSheetTypeId) {
         const response = await fetch('api/checksheets/' + checkSheetTypeId);
         const data = await response.json();
-        this.setState({ checkSheetDto: data, loading: false });
+        this.setState({ checkSheetTypeId: checkSheetTypeId, checkSheetDto: data, loading: false });
     }
 
     render() {

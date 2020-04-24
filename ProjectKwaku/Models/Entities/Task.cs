@@ -15,6 +15,8 @@ namespace Models.Entities
 
         public int ActiveDays { get; set; }
 
+        public string Comments { get; set; }
+
         public string Description { get; set; }
 
         public string Notes { get; set; }

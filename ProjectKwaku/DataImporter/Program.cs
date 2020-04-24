@@ -33,19 +33,18 @@ namespace DataImporter
                 .AddTransient<IGenericRepository<TaskStatus>, GenericRepository<TaskStatus>>()
                 .BuildServiceProvider();
 
+            var configService = serviceProvider.GetService<IConfiguration>();
+            var importConfigs = configService.GetSection("DataImport").Get<List<DataImportConfig>>();
+
             Console.WriteLine("====================================================");
             Console.WriteLine("              Checksheet Data Importer              ");
             Console.WriteLine("====================================================");
             Console.WriteLine("                                                    ");
             Console.WriteLine("Use this tool to pre-populate an empty database.    ");
             Console.WriteLine("                                                    ");
-            Console.WriteLine("appsettings loaded: " + appSettingsPath);
+            Console.WriteLine($"appsettings loaded: {appSettingsPath}");
             Console.WriteLine("                                                    ");
-
-            var configService = serviceProvider.GetService<IConfiguration>();
-            var importConfigs = configService.GetSection("DataImport").Get<List<DataImportConfig>>();
-
-            Console.WriteLine("# of imports: " + importConfigs.Count);
+            Console.WriteLine($"# of imports: {importConfigs.Count}");
             Console.WriteLine("                                                    ");
             Console.WriteLine("Press Y to continue, or any key to quit.            ");
             Console.WriteLine("                                                    ");
@@ -57,9 +56,6 @@ namespace DataImporter
                 Environment.Exit(0);
             }
 
-            Console.WriteLine("                                                    ");
-            Console.WriteLine("                                                    ");
-
             var dataService = new DataService(
                 serviceProvider.GetRequiredService<IGenericRepository<CheckSheet>>(),
                 serviceProvider.GetRequiredService<IGenericRepository<CheckSheetType>>(),
@@ -69,6 +65,8 @@ namespace DataImporter
 
             foreach (var config in importConfigs)
             {
+                Console.WriteLine("                                                    ");
+                Console.WriteLine("                                                    ");
                 Console.WriteLine($"Importing...");
                 Console.WriteLine($"> Check Sheet Name: " + config.CheckSheetName);
                 Console.WriteLine($"> Time Zone: " + config.CheckSheetTimeZoneId);
@@ -79,9 +77,7 @@ namespace DataImporter
                 var checkSheetId = dataService.AddCheckSheet(checkSheetTypeId);
                 dataService.AddTaskStatuses(tasks, checkSheetId);
 
-
                 Console.WriteLine($"Tasks Added: " + tasks.Length);
-                Console.WriteLine();
             }
 
             Console.WriteLine("====================================================");
